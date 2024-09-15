@@ -1,16 +1,10 @@
 {
   "compilerOptions": {
+    "target": "es6",
+    "lib": ["es6", "dom"],  // Inclua "es6" ou "esnext" para garantir que Promise e outros tipos estejam disponíveis
+    "jsx": "react",
     "outDir": "./dist",
-    "declaration": true,  // Ou false, se você não precisar de arquivos .d.ts
-    "declarationMap": true,
-    "sourceMap": true,
     "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
-  },
-  "exclude": [
-    "node_modules",
-    "vite.config.ts"  // Exclua arquivos de configuração
-  ]
+    "esModuleInterop": true
+  }
 }
