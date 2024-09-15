@@ -25,7 +25,7 @@ align-content: center;
 
 //Logo
 export const Logo = styled.img`
-background-image: url('/assets/logo.png');
+
 width: 125px;
 height: 57.5px;
 background-repeat: no-repeat;
