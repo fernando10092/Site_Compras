@@ -1,23 +1,16 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "useDefineForClassFields": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "allowJs": false,
-    "skipLibCheck": true,
-    "esModuleInterop": false,
-    "allowSyntheticDefaultImports": true,
+    "outDir": "./dist",
+    "declaration": true,  // Ou false, se você não precisar de arquivos .d.ts
+    "declarationMap": true,
+    "sourceMap": true,
     "strict": true,
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx",
-    "types": ["vitest/globals"],
- 
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
   },
-  "references": [{ "path": "./tsconfig.node.json" }],
-  
-
+  "exclude": [
+    "node_modules",
+    "vite.config.ts"  // Exclua arquivos de configuração
+  ]
 }
