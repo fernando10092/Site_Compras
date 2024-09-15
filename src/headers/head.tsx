@@ -1,4 +1,5 @@
-import { Header, Imagem, Textheader, Logo, Divheader } from "."
+import { Header, Imagem, Textheader, Logo, Divheader } from ".";
+import logo from '../public/assets/logo.png';
 
 //HEADER
 const Headinit = () => {

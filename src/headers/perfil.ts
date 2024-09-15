@@ -10,7 +10,7 @@ text-align: center;
 `
 //Imagem
 export const ImagemStyledPerfil = styled.div`
-background-image: url('../assets/Vector.png');
+background-image: url('/assets/Vector.png');
 background-color: #FFEBD9;
 max-width: 100vw;
 height: 186px;
@@ -25,7 +25,7 @@ justify-content: space-around;
 
 //Logo
 export const LogoPerfil = styled.img`
-background-image: url('../assets/logo.png');
+background-image: url('/assets/logo.png');
 width: 125px;
 height: 57.5px;
 background-repeat: no-repeat;
@@ -40,7 +40,7 @@ cursor: pointer;
 `
 //Imagem
 export const ImagemStyledPerfilFood = styled.div`
-background-image: url('../assets/fooditaliana.png');
+background-image: url('/assets/fooditaliana.png');
 height: 280px;
 max-width: 100vw;
 `

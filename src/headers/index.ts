@@ -10,7 +10,7 @@ text-align: center;
 `
 //Imagem
 export const Imagem = styled.div`
-background-image: url('../src/public/assets/Vector.png');
+background-image: url('/assets/Vector.png');
 background-color: #FFEBD9;
 max-width: 100vw;
 height: 384px;
@@ -25,7 +25,7 @@ align-content: center;
 
 //Logo
 export const Logo = styled.img`
-background-image: url('../src/public/assets/logo.png');
+background-image: url('/assets/logo.png');
 width: 125px;
 height: 57.5px;
 background-repeat: no-repeat;
