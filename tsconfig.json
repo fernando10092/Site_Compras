@@ -1,10 +1,36 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "lib": ["es6", "dom"],  // Inclua "es6" ou "esnext" para garantir que Promise e outros tipos estejam disponíveis
-    "jsx": "react",
-    "outDir": "./dist",
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
     "strict": true,
-    "esModuleInterop": true
-  }
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "types": [
+      "vitest/globals"
+    ],
+  },
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ],
+  //inclusao
+  "exclude": [
+    "vite.config.ts",
+    "node_modules"
+  ]
+  //fim da inclusao
 }
