@@ -14,15 +14,32 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["vitest/globals"]
+    "types": ["vitest/globals"],
+    //
+    "outDir": "./dist",
+    "declaration": true,   // Gera arquivos .d.ts
+    "declarationMap": true, // Gera mapas de declaração
+    "sourceMap": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
   },
   "references": [{ "path": "./tsconfig.node.json" }],
   
+  //alteracoes abaixo
+
+  "include": [
+    "src/**/*"
+  ],
+
   "exclude": [
     "node_modules",
-    "src/**/*.test.tsx",
-    "src/utils/test-utils.ts" // Adicione isto se não for necessário no build
+    "**/*.test.tsx",
+    "**/*.spec.tsx",
+    "**/*.d.ts" // Exclua arquivos de declaração se não forem necessários
   ]
+  // fim alteracoes
 
 
 }
