@@ -1,4 +1,4 @@
-import lasanha from '/src/public/assets/lasanha.jpg';
+import lasanha from '../public/assets/lasanha.jpg';
 
 export const ListaCarrinho5 = [{
     produto: "Lasanha",

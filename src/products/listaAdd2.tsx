@@ -1,6 +1,6 @@
-import sushi from '/src/public/assets/sushi2.jpg';
-import sopa from '/src/public/assets/sopa.jpg';
-import salmao from '/src/public/assets/salmao.jpg';
+import sushi from '../public/assets/sushi2.jpg';
+import sopa from '../public/assets/sopa.jpg';
+import salmao from '../public/assets/salmao.jpg';
 
 
 export const ListaCarrinho2 = [{

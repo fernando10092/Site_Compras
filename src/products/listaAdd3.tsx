@@ -1,6 +1,6 @@
-import macaron from '/src/public/assets/macaron.jpg';
-import petit from '/src/public/assets/petit.jpg';
-import baguete from '/src/public/assets/baguete.jpg';
+import macaron from '../public/assets/macaron.jpg';
+import petit from '../public/assets/petit.jpg';
+import baguete from '../public/assets/baguete.jpg';
 
 
 export const ListaCarrinho3 = [{

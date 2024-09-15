@@ -1,9 +1,9 @@
-import pizza from '/src/public/assets/pizza.jpg';
-import gelato from '/src/public/assets/gelato.jpg';
-import macarrao from '/src/public/assets/macarrao.jpg';
-import risoto from '/src/public/assets/risoto.jpg';
-import nhoque from '/src/public/assets/nhoque.jpg';
-import ravioli from '/src/public/assets/ravioli.jpg';
+import pizza from '../public/assets/pizza.jpg';
+import gelato from '../public/assets/gelato.jpg';
+import macarrao from '../public/assets/macarrao.jpg';
+import risoto from '../public/assets/risoto.jpg';
+import nhoque from '../public/assets/nhoque.jpg';
+import ravioli from '../public/assets/ravioli.jpg';
 
 export const ListaCarrinho = [{
     produto: "Pizza Marguerita",

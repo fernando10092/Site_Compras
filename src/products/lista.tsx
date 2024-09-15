@@ -1,8 +1,8 @@
-import sushi from '/src/public/assets/sushi.png';
-import pasta from '/src/public/assets/pasta.png';
-import macaron from '/src/public/assets/macaron.jpg';
-import esfiha from '/src/public/assets/esfiha.jpg';
-import lasanha from '/src/public/assets/lasanha.jpg';
+import sushi from '../public/assets/sushi.png';
+import pasta from '../public/assets/pasta.png';
+import macaron from '../public/assets/macaron.jpg';
+import esfiha from '../public/assets/esfiha.jpg';
+import lasanha from '../public/assets/lasanha.jpg';
 export const ListaProduct = [
     {
         id: 1,

@@ -15,31 +15,9 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "types": ["vitest/globals"],
-    //
-    "outDir": "./dist",
-    "declaration": true,   // Gera arquivos .d.ts
-    "declarationMap": true, // Gera mapas de declaração
-    "sourceMap": true,
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+ 
   },
   "references": [{ "path": "./tsconfig.node.json" }],
   
-  //alteracoes abaixo
-
-  "include": [
-    "src/**/*"
-  ],
-
-  "exclude": [
-    "node_modules",
-    "**/*.test.tsx",
-    "**/*.spec.tsx",
-    "**/*.d.ts" // Exclua arquivos de declaração se não forem necessários
-  ]
-  // fim alteracoes
-
 
 }

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ContainerCarrinhoBlack, ContClickExit, ContainerCarrinho, Ul, ListaChart, ContainerItens, ImgCarrinho, ContainerText, Item, Valor, ContainerIcon, Icon, ContainerDetalhes, Detalhes, BotaoContinuar } from "./carrinhoStyled";
-import itens from '/src/public/assets/imgCarrinho.png';
-import lixeira from '/src/public/assets/lixeira.png';
+import itens from '../public/assets/imgCarrinho.png';
+import lixeira from '../public/assets/lixeira.png';
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
 import { valorItem, excluirItem, carrinhoVisible, entregaVisible, excluirValor } from "../store/reducers/carrinhoReducer";

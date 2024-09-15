@@ -1,4 +1,4 @@
-import esfirra from '/src/public/assets/esfiha.jpg';
+import esfirra from '../public/assets/esfiha.jpg';
 
 export const ListaCarrinho4 = [{
     produto: "Esfirra",

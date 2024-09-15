@@ -1,7 +1,7 @@
 // Modal.tsx
 import { useEffect, useRef } from "react";
 import { ContStyledModal, ContImg, ImgPizzaModal, ContStyledModalText, ProdutoModal, DescricaoModal, ContBtn, BotaoModal, BotaoClose } from ".";
-import pizza from '/src/public/assets/marguerita2.png';
+import pizza from '../public/assets/marguerita2.png';
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
 import { adicionarItem, callModal2, toggleCarrinho, valorItem, listaChartReducer, carrinhoVisible, delCarrinho } from "../store/reducers/carrinhoReducer";
@@ -11,7 +11,7 @@ const Modal = () => {
 
     const nomeProduto = "Pizza Marguerita";
     const valorPizza = 60.90;
-    const imgPizza = "/src/public/assets/marguerita2.png";
+    const imgPizza = "../public/assets/marguerita2.png";
 
     const dispatch = useDispatch();
     const modalRef = useRef<HTMLDivElement>(null);

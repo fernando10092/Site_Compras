@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import HeadPerfil from "../headers/headPerfil";
 import { ContainerPerfil, Ul, CardPerfil, ImagemCard, NomeProdutoPerfil, DescricaoPerfil, BotaoPerfil } from "./perfilStyled";
-import marguerita from '/src/public/assets/marguerita.png';
+import marguerita from '../public/assets/marguerita.png';
 import { ListaCarrinho } from "../products/listaAdd";
 import Modal from "../components/modal";
 import { useDispatch, useSelector } from "react-redux";

@@ -1,5 +1,5 @@
 import { Lista, Botao, Paragrafo, Titulo, Conteudo, Imagem, Contetitle, Avaliacao, Textimage, Textimage2, Containerfoto, Estrela } from ".";
-import estrela from '/src/public/assets/estrela.png';
+import estrela from '../public/assets/estrela.png';
 import { ListaProduct } from "../products/lista";
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from "react-redux";

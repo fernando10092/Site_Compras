@@ -1,6 +1,6 @@
 import { Rodape, ImgStyled, SocialStyled, PStyledFooter } from "."
-import logo from '/src/public/assets/logo.png';
-import social from '/src/public/assets/social.png'
+import logo from '../public/assets/logo.png';
+import social from '../public/assets/social.png'
 
 const Rodapecomponents = () => {
     return (
