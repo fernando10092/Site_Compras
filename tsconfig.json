@@ -20,7 +20,8 @@
   
   "exclude": [
     "node_modules",
-    "vite.config.ts"
+    "src/**/*.test.tsx",
+    "src/utils/test-utils.ts" // Adicione isto se não for necessário no build
   ]
 
 
