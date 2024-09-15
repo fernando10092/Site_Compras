@@ -29,6 +29,7 @@ background-image: url('../src/public/assets/logo.png');
 width: 125px;
 height: 57.5px;
 background-repeat: no-repeat;
+cursor: pointer;
 `
 //Texto header
 export const Textheader = styled.h1`

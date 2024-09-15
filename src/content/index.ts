@@ -24,13 +24,28 @@ position: relative;
 //IMAGEM
 export const Imagem = styled.img`
 object-fit: cover;
-
+width: 472px;
+height: 217px;
 @media (max-width: 780px){
 margin:0px;
 width: 100%;
 }
 
 `
+//TEXTIMAGE2
+export const Textimage = styled.h3`
+margin: 10px;
+background-color: #E66767;
+color: #FFEBD9;
+font-size: 12px;
+height: 26px;
+position: absolute;
+align-content: center;
+top: 8px;
+left: 150px;
+
+`
+
 //TEXTIMAGE2
 export const Textimage2 = styled.h3`
 margin: 10px;
@@ -60,6 +75,11 @@ height: 24px;
 font-wight: 700;
 font-size: 14px;
 cursor: pointer;
+@media (max-width: 780px){
+margin-top: 5px;
+width: 72px;
+height: 20px;
+}
 `
 
 //PARAGRAFO
@@ -69,6 +89,7 @@ font-size: 14px;
 @media (max-width: 780px){
 margin:0px;
 width: 85%;
+font-size: 12px;
 }
 `
 //CONTAINER TITULO
@@ -81,7 +102,7 @@ align-itens: center;
 padding: 0px;
 
 @media (max-width: 780px){
-margin:0px;
+margin-bottom: 15px;
 width: 90%;
 }
 `

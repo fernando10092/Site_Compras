@@ -7,7 +7,7 @@ const Headinit = () => {
             <Header>
                 <Imagem>
                     <Divheader>
-                        <Logo />
+                        <Logo onClick={()=>window.location.reload()} />
                     </Divheader>
                     <Divheader>
                         <Textheader>

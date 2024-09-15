@@ -1,38 +1,66 @@
 import { useState } from "react";
-import { ContainerCarrinhoBlack, ContainerCarrinho, ContainerItens, ImgCarrinho, ContainerText, Item, Valor, ContainerIcon, Icon, ContainerDetalhes, Detalhes, BotaoContinuar } from "./carrinhoStyled";
+import { ContainerCarrinhoBlack, ContClickExit, ContainerCarrinho, Ul, ListaChart, ContainerItens, ImgCarrinho, ContainerText, Item, Valor, ContainerIcon, Icon, ContainerDetalhes, Detalhes, BotaoContinuar } from "./carrinhoStyled";
 import itens from '/src/public/assets/imgCarrinho.png';
 import lixeira from '/src/public/assets/lixeira.png';
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
-import { valorItem } from "../store/reducers/carrinhoReducer";
+import { valorItem, excluirItem, carrinhoVisible, entregaVisible, excluirValor } from "../store/reducers/carrinhoReducer";
+import { Link, useNavigate } from "react-router-dom";
 const Carrinho = () => {
 
+    const dispatch = useDispatch();
     const valor = useSelector((state: RootState) => state.carrinho.valor);
+    const item = useSelector((state: RootState) => state.carrinho.qtd);
+    const listaReducer = useSelector((state: RootState) => state.carrinho.lista);
+    const exclusao = useSelector((state: RootState) => state.carrinho.lista);
+    const adicionadoCarrinho = useSelector((state: RootState)=>state.carrinho.addCarrinho);
+
+    const closeCarrinho = () => {
+        dispatch(carrinhoVisible(false))
+    }
+
+    const goDelivery = ()=>{
+        dispatch(carrinhoVisible(false));
+        dispatch(entregaVisible(true));
+    }
+
+
+    const removerValor = ()=>{
+        
+    }
 
     return (
         <>
-            <ContainerCarrinhoBlack onClick={(e) => e.stopPropagation()}>
-                <ContainerCarrinho>
-                    <ContainerItens>
-                        <ImgCarrinho src={itens} />
-                        <ContainerText>
-                            <Item>Pizza Marguerita</Item>
-                            <Valor>R$ 50</Valor>
-                            <ContainerIcon>
-                                <Icon src={lixeira} />
-                            </ContainerIcon>
-                        </ContainerText>
+            <ContainerCarrinhoBlack opacidade="0.4" onClick={(e) => e.stopPropagation()}>
 
-                    </ContainerItens>
+                <ContClickExit onClick={closeCarrinho} />
+
+                <ContainerCarrinho>
+                    <Ul>
+                        {listaReducer.map((p, index) => (
+
+                            <ListaChart key={index}>
+
+                                <ContainerItens>
+                                    <ImgCarrinho src={p.img} />
+                                    <ContainerText>
+                                        <Item>{p.nome}</Item>
+                                        <Valor>R$ {p.valor.toFixed(2)}</Valor>
+                                        <ContainerIcon>
+                                            <Icon onClick={() => dispatch(excluirItem(index))} src={lixeira} />
+                                        </ContainerIcon>
+                                    </ContainerText>
+                                </ContainerItens>
+                            </ListaChart>
+                        ))}
+                    </Ul>
                     <ContainerDetalhes>
                         <Detalhes>Valor Total</Detalhes>
-                        <Detalhes>R$ {valor}</Detalhes>
+                        <Detalhes>R$ {listaReducer.reduce((acumulado, item)=>acumulado + item.valor,0).toFixed(2)}</Detalhes>
                     </ContainerDetalhes>
-                    <BotaoContinuar>Continuar com a entrega</BotaoContinuar>
+                    <BotaoContinuar onClick={goDelivery}>Continuar com a entrega</BotaoContinuar>
                 </ContainerCarrinho>
-
             </ContainerCarrinhoBlack>
-
         </>
     )
 }

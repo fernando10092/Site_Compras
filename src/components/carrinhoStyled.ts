@@ -1,16 +1,33 @@
 import styled from "styled-components";
 
-export const ContainerCarrinhoBlack = styled.div`
+type Opacidade = {
+    opacidade: string;
+}
+
+export const ContainerCarrinhoBlack = styled.div<Opacidade>`
 position: fixed;
 top: 0;
 left: 0;
 right: 0;
 bottom: 0;
-background-color: rgba(0, 0, 0, 0.7);
+background-color: rgba(0, 0, 0, ${(e)=>e.opacidade});
 display: flex;
 align-items: center;
 justify-content: center;
 z-index: 1000;
+
+`
+export const ContClickExit = styled.div`
+background-color:  rgba(0, 0, 0, 0.7);
+position: absolute;
+z-index: 1002;
+width: 72.5%;
+min-height: 100%;
+left: 0px;
+
+@media (max-width: 790px){
+width: 38%;
+}
 `
 
 export const ContainerCarrinho = styled.div`
@@ -18,10 +35,23 @@ background-color: #E66767;
 padding: 5px;
 top: 0px;
 right: 0px;
-width: 360px;
-height: 1524px;
+width: 27%;
+height: 100%;
 position: absolute;
-z-index: 8;
+z-index: 1001;
+overflow-y: auto;
+@media (max-width: 790px){
+width: 60%;
+}
+`
+export const Ul = styled.ul`
+padding: 0px;
+
+`
+
+export const ListaChart = styled.li`
+list-style: none;
+
 `
 
 export const ContainerItens = styled.div`
@@ -33,6 +63,9 @@ padding: 5px;
 margin-top: 30px;
 margin-left: 3px;
 margin-right: 3px;
+@media (max-width: 790px){
+width: 95%;
+}
 `
 
 export const ImgCarrinho = styled.img`
@@ -88,4 +121,41 @@ margin-top: 30px;
 margin-left: 3px;
 margin-right: 3px;
 cursor: pointer;
+@media (max-width: 790px){
+width: 95%;
+}
+`
+
+export const TitleDelivery = styled.h2`
+font-size: 16px;
+color: #FFEBD9;
+`
+
+export const LabelText = styled.label`
+font-size: 14px;
+color: #FFEBD9;
+display: inline-block;
+`
+export const DivSmall = styled.div`
+width: 175px;
+height: 64px;
+margin-top: 10px;
+display: inline-block;
+`
+
+type Mod = {
+    width: number;
+    display: string;
+}
+export const InputDelivery = styled.input<Mod>`
+width: ${(e)=>e.width}px;
+height: 32px;
+border: none;
+display: ${(e)=>e.display};
+`
+
+export const Paragrafo = styled.p`
+color: #FFEBD9;
+font-size: 14px;
+
 `

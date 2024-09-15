@@ -1,88 +1,88 @@
-import { useState } from "react";
-import { ContStyledModal, ImgPizzaModal, ContStyledModalText, ProdutoModal, DescricaoModal, BotaoModal, BotaoClose } from ".";
+// Modal.tsx
+import { useEffect, useRef } from "react";
+import { ContStyledModal, ContImg, ImgPizzaModal, ContStyledModalText, ProdutoModal, DescricaoModal, ContBtn, BotaoModal, BotaoClose } from ".";
 import pizza from '/src/public/assets/marguerita2.png';
-import { DivOpen } from ".";
-import Carrinho from "./carrinho";
-import fcTest from "../headers/headPerfil";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
-import { adicionarItem, callModal, callModal2, valorItem } from "../store/reducers/carrinhoReducer";
-import Perfil from "../content/perfil";
-import { ContainerBlack, Op } from ".";
+import { adicionarItem, callModal2, toggleCarrinho, valorItem, listaChartReducer, carrinhoVisible, delCarrinho } from "../store/reducers/carrinhoReducer";
 
-//MODAL
+// MODAL COMPONENT
 const Modal = () => {
 
-    //USESTATE FUNDO MODAL OPACIDADE
-    const [opac, setOpac] = useState<Op>({ Opacidade: "0.5" });
+    const nomeProduto = "Pizza Marguerita";
+    const valorPizza = 60.90;
+    const imgPizza = "/src/public/assets/marguerita2.png";
 
-    //INSTANCIANDO O USEDISPATCH
     const dispatch = useDispatch();
+    const modalRef = useRef<HTMLDivElement>(null);
+    const modalVisible = useSelector((state: RootState) => state.carrinho.modalVisible);
 
-    //USESTATE MOSTRAR CONTEUDO
-    const [isVisible, setIsVisible] = useState(true);
-    // DUNCAO PARA FECHAR O MODAL
+    const adicionadoCarrinho = useSelector((state: RootState)=>state.carrinho.addCarrinho);
+
+    // Função para fechar o modal
     const closeModal = () => {
-        setIsVisible(false); //DEFINE PARA FALSO
-        window.location.reload(); // RECARREGA A PAGINA
+        dispatch(callModal2(false));
+        dispatch(delCarrinho(true));
+       
     };
 
-    //USESTATE CARRINHO - USANDO ??
-    const [lcarrinho, setLcarrinho] = useState<JSX.Element>();
+    // Fechar o modal ao clicar fora dele
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
+                closeModal();
+            }
+        };
 
-    //USESTATE ELEMENTO JSX
-    const [add, setAdd] = useState<JSX.Element>()
+        document.addEventListener("mousedown", handleClickOutside);
 
-    //FUNCAO PARA ? #####RESOLVER AQUI
-    const [chart, setChart] = useState<boolean>(false);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
 
-    function callCarrinho() {
-        //ADICIONA A QUATIDADE NO CARRINHO /PERFIL
-        dispatch(adicionarItem(1))
-        dispatch(valorItem(69.90))
+    // Adiciona item ao carrinho, fecha o modal e exibe o carrinho
+    const callCarrinho = () => {
+        dispatch(adicionarItem(1));
+        dispatch(valorItem(valorPizza));
 
-        ///Fechar Modal 1
-        setIsVisible(false);
+        adicionadoCarrinho.map((p, index)=>{
+            dispatch(listaChartReducer({ nome: p.produto, valor: p.valor, img: p.img }))
+        })
 
-        //CHAMA O CARRINHO ? MODAL 2 #####RESOLVER AQUI
-        dispatch(callModal2(setChart(true)));
-    }
-  
+        //dispatch(listaChartReducer({ nome: nomeProduto, valor: valorPizza, img: imgPizza })) //nome, valor e imagem
+        closeModal();
+        //dispatch(toggleCarrinho(true)); // Abre o carrinho
+        dispatch(carrinhoVisible(true));
+    };
 
-    //RETURN <MODAL 1>
     return (
         <>
-            {chart && <Carrinho />}
-            {isVisible && (
-
-                < ContainerBlack Opacidade={opac.Opacidade}>
-                    <ContStyledModal>
-                        <ImgPizzaModal src={pizza} />
+            {modalVisible && (
+                <div style={{ position: "fixed", top: 0, left: 0, width: "100vw", height: "100vh", background: "rgba(0, 0, 0, 0.5)", display: "flex", justifyContent: "center", alignItems: "center", zIndex: 1000 }}>
+                    <ContStyledModal ref={modalRef}>
+                        <ContImg>
+                            {adicionadoCarrinho.map((e)=>(<ImgPizzaModal src={e.img}/>))}
+                           
+                        </ContImg>
                         <ContStyledModalText>
-                            <div>
+                            <ContBtn>
                                 <BotaoClose onClick={closeModal}>X</BotaoClose>
-                            </div>
-                            <ProdutoModal>
-                                Pizza Marguerita
-                            </ProdutoModal>
+                            </ContBtn>
+                            <ProdutoModal>{adicionadoCarrinho.map((e)=>e.produto)}</ProdutoModal>
                             <DescricaoModal>
-                                A pizza Margherita é uma pizza clássica da culinária italiana, reconhecida por sua simplicidade e
-                                sabor inigualável. Ela é feita com uma base de massa fina e crocante, coberta com molho de tomate fresco,
-                                queijo mussarela de alta qualidade, manjericão fresco e azeite de oliva extra-virgem. A combinação de
-                                sabores é perfeita, com o molho de tomate suculento e ligeiramente ácido, o queijo derretido e cremoso
-                                e as folhas de manjericão frescas, que adicionam um toque de sabor herbáceo. É uma pizza simples, mas deliciosa,
-                                que agrada a todos os paladares e é uma ótima opção para qualquer ocasião.
-
-                                Serve: de 2 a 3 pessoas
+                                {adicionadoCarrinho.map((e)=>e.descricao)}
+                                <br/>
+                                <br/>
+                                Serve: {adicionadoCarrinho.map((e)=>e.descricao)}
                             </DescricaoModal>
-                            {/**#####RESOLVER AQUI */}
-                            <BotaoModal onClick={callCarrinho}>Adicionar ao carrinho - R$ 60,90</BotaoModal>
+                            <BotaoModal onClick={callCarrinho}>Adicionar ao carrinho - R$ {adicionadoCarrinho.map((e)=>e.valor.toFixed(2))}</BotaoModal>
                         </ContStyledModalText>
                     </ContStyledModal>
-                </ContainerBlack >
+                </div>
             )}
         </>
-    )
-}
+    );
+};
 
 export default Modal;

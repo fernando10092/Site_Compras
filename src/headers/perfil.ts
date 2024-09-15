@@ -29,17 +29,37 @@ background-image: url('../src/public/assets/logo.png');
 width: 125px;
 height: 57.5px;
 background-repeat: no-repeat;
+cursor: pointer;
 `
 
 //Texto Head
 export const TextStyledPerfil = styled.h4`
 color: #E66767;
 font-size: 18px;
+cursor: pointer;
 `
 //Imagem
 export const ImagemStyledPerfilFood = styled.div`
 background-image: url('../src/public/assets/fooditaliana.png');
 height: 280px;
-width: 100vw;
+max-width: 100vw;
+`
+//DIV RESTAURANTE
+export const DivRestaurante = styled.div`
+height: 280px;
+padding: 20px;
 
+`
+
+//TEXT RESTAURANTE
+export const TextStyledRestaurante = styled.h1`
+color: #FFFFFF;
+font-size: 32px;
+margin-bottom: 70px;
+`
+//TEXT RESTAURANTE
+export const TextStyledRestaurante2 = styled.h1`
+color: #FFFFFF;
+font-size: 32px;
+font-weight: 900px;
 `

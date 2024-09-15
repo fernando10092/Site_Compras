@@ -5,12 +5,21 @@ export const ContainerPerfil = styled.div`
 text-align: center;
 margin: 0px;
 padding: 0px;
-width: 100vw;
-display: inline;
+max-width: 100vw;
+display: grid;
+grid-template-columns: auto auto auto;
+column-gap: 0px;
+
+@media (max-width: 790px){
+grid-template-columns: auto;
+}
+
+@media (min-width: 791px) and (max-width: 1020px){
+grid-template-columns: auto auto;
+}
 `
 //UL
 export const Ul = styled.ul`
-display: inline;
 text-align: center;
 `
 
@@ -23,13 +32,14 @@ text-align: center;
 padding: 5px;
 margin: 10px;
 list-style: none;
-display: inline-block;
+
 `
 
 //Imagem
 export const ImagemCard = styled.img`
 width: 304px;
 height: 167px;
+object-fit: fill;
 `
 
 //Nome Produto

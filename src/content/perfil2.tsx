@@ -17,7 +17,7 @@ import { isAction } from "@reduxjs/toolkit";
 import { ListaCarrinho2 } from "../products/listaAdd2";
 
 //PERFIL
-const Perfil = () => {
+const Perfil2 = () => {
     //USEDISPATCH
     const dispatch = useDispatch();
     //USESELECTOR
@@ -88,7 +88,7 @@ const Perfil = () => {
                 </div>
             )}
             <ContainerPerfil >
-                {ListaCarrinho.map((p, index) => (
+                {ListaCarrinho2.map((p, index) => (
                     <Ul>
                         <CardPerfil key={index}>
                             <ImagemCard src={p.img} />
@@ -107,4 +107,4 @@ const Perfil = () => {
     );
 };
 
-export default Perfil;
+export default Perfil2;

@@ -25,7 +25,7 @@ z-index: 1000;
 //Container
 export const ContStyledModal = styled.div<Props>`
 background-color: #E66767;
-width: 1024px;
+width: 75%;
 height: 344px;
 margin: 0 auto;
 margin-top: 100px;
@@ -33,13 +33,37 @@ padding: 25px;
 position: absolute;
 left: 100px;
 opacity: 1;
-display: ${(props) => props.Display};
+display: grid;
+grid-template-columns: auto auto;
+
+@media (max-width: 791px){
+width: 60%;
+display: block;
+height: 700px;
+position: relative;
+overflow-y: scroll;
+}
+
 `
+//Container IMG
+export const ContImg = styled.div`
+width: 280px;
+height: 344px;
+align-content: center;
+grid-template-columns: auto;
+
+@media (max-width: 791px){
+margin: 5px;
+width: 90%;
+height: 20%;
+}
+`
+
 //Imagem
 export const ImgPizzaModal = styled.img<Props>`
-width: 280px;
-height: 280px;
-display: ${(props) => props.Display};
+width: 100%;
+height: 200px;
+
 `
 //Container escrita
 export const ContStyledModalText = styled.div`
@@ -48,18 +72,33 @@ width: 656px;
 height: 280px;
 padding: 25px;
 text-align: justify;
+
 `
 
 //Titulo
 export const ProdutoModal = styled.h1`
 font-size: 18px;
 color: #FFFFFF;
+@media (max-width: 791px){
+font-size: 14px;
+}
 `
 //Paragrafo
 export const DescricaoModal = styled.p`
 font-size: 14px;
 color: #FFFFFF;
+@media (max-width: 791px){
+font-size: 12px;
+margin: 5px;
+width: 30%;
+}
 `
+//Container BTN
+export const ContBtn = styled.div`
+width: 100%;
+text-align: end;
+`
+
 //Botao
 export const BotaoModal = styled.button`
 width: 218px;
