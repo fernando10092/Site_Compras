@@ -39,7 +39,7 @@ cursor: pointer;
 `
 //Imagem
 export const ImagemStyledPerfilFood = styled.div`
-background-image: url('/src/public/assets/fooditaliana.png');
+background-image: url('../src/public/assets/fooditaliana.png');
 height: 280px;
 max-width: 100vw;
 `
