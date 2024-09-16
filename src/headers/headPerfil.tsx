@@ -40,7 +40,7 @@ const HeadPerfil = ({ onCarrinhoClick }: HeadPerfilProps) => {
                 <ImagemStyledPerfil>
                     <ContainerStyledPerfil>
                         <TextStyledPerfil onClick={funcHome}>Restaurantes</TextStyledPerfil>
-                        <LogoPerfil src={logo} onClick={() => window.location.assign(window.location.href)} />
+                        <LogoPerfil src={logo} onClick={() => navigate(0)} />
                         <TextStyledPerfil onClick={returnCarrinho}>
                             {qtd.length} produto(s) no carrinho
                         </TextStyledPerfil>

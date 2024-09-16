@@ -3,10 +3,12 @@ import { ContainerCarrinho, BotaoContinuar, TitleDelivery, LabelText, InputDeliv
 import { entregaVisible, carrinhoVisible, cartaoVisible, concluirVisible } from "../store/reducers/carrinhoReducer";
 import { Link } from "react-router-dom";
 import { RootState } from "../store";
+import { useNavigate } from 'react-router-dom';
 const Finalizacao = () => {
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const concluir = ()=>{
-        window.location.assign(window.location.href);
+        navigate(0);
     }
     const idSelector = useSelector((state: RootState)=>state.carrinho.dados);
     idSelector.map((e)=>e.id)
