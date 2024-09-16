@@ -40,7 +40,7 @@ const HeadPerfil = ({ onCarrinhoClick }: HeadPerfilProps) => {
                 <ImagemStyledPerfil>
                     <ContainerStyledPerfil>
                         <TextStyledPerfil onClick={funcHome}>Restaurantes</TextStyledPerfil>
-                        <LogoPerfil src={logo} onClick={() => window.location.reload()} />
+                        <LogoPerfil src={logo} onClick={() => window.location.assign(window.location.href)} />
                         <TextStyledPerfil onClick={returnCarrinho}>
                             {qtd.length} produto(s) no carrinho
                         </TextStyledPerfil>
@@ -64,17 +64,6 @@ const HeadPerfil = ({ onCarrinhoClick }: HeadPerfilProps) => {
 
             </DivHero>
 
-            {/*             <ImagemStyledPerfilFood>
-                {dadosRestaurante.map((p) => (
-                    <>
-                        <DivRestaurante>
-                            <TextStyledRestaurante>{p.tipo}</TextStyledRestaurante>
-                            <TextStyledRestaurante2>{p.restaurante}</TextStyledRestaurante2>
-                        </DivRestaurante>
-                    </>
-                ))}
-
-            </ImagemStyledPerfilFood> */}
         </>
     );
 };

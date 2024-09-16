@@ -6,7 +6,7 @@ import { RootState } from "../store";
 const Finalizacao = () => {
     const dispatch = useDispatch();
     const concluir = ()=>{
-        window.location.reload()
+        window.location.assign(window.location.href);
     }
     const idSelector = useSelector((state: RootState)=>state.carrinho.dados);
     idSelector.map((e)=>e.id)
