@@ -13,20 +13,30 @@ const Carrinho = () => {
     const item = useSelector((state: RootState) => state.carrinho.qtd);
     const listaReducer = useSelector((state: RootState) => state.carrinho.lista);
     const exclusao = useSelector((state: RootState) => state.carrinho.lista);
-    const adicionadoCarrinho = useSelector((state: RootState)=>state.carrinho.addCarrinho);
+    const adicionadoCarrinho = useSelector((state: RootState) => state.carrinho.addCarrinho);
 
     const closeCarrinho = () => {
         dispatch(carrinhoVisible(false))
     }
 
-    const goDelivery = ()=>{
-        dispatch(carrinhoVisible(false));
-        dispatch(entregaVisible(true));
+    const goDelivery = () => {
+
+        //{listaReducer.reduce((acumulado, item) => acumulado + item.valor, 0).toFixed(2)}
+
+        if (valor > 0) {
+
+            dispatch(carrinhoVisible(false));
+            dispatch(entregaVisible(true));
+
+        } else {
+            alert("Seu carrinho está vazio");
+        }
+
     }
 
 
-    const removerValor = ()=>{
-        
+    const removerValor = () => {
+
     }
 
     return (
@@ -56,7 +66,7 @@ const Carrinho = () => {
                     </Ul>
                     <ContainerDetalhes>
                         <Detalhes>Valor Total</Detalhes>
-                        <Detalhes>R$ {listaReducer.reduce((acumulado, item)=>acumulado + item.valor,0).toFixed(2)}</Detalhes>
+                        <Detalhes>R$ {listaReducer.reduce((acumulado, item) => acumulado + item.valor, 0).toFixed(2)}</Detalhes>
                     </ContainerDetalhes>
                     <BotaoContinuar onClick={goDelivery}>Continuar com a entrega</BotaoContinuar>
                 </ContainerCarrinho>
