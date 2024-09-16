@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
 import { carrinhoVisible, listaChartReducer } from "../store/reducers/carrinhoReducer";
 import { useNavigate } from "react-router-dom";
+import logo from '../public/assets/logo.png';
+import hero from '../public/assets/fooditaliana.png';
 
 //TIPO
 type HeadPerfilProps = {
@@ -38,7 +40,7 @@ const HeadPerfil = ({ onCarrinhoClick }: HeadPerfilProps) => {
                 <ImagemStyledPerfil>
                     <ContainerStyledPerfil>
                         <TextStyledPerfil onClick={funcHome}>Restaurantes</TextStyledPerfil>
-                        <LogoPerfil onClick={()=>window.location.reload()} />
+                        <LogoPerfil src={logo} onClick={() => window.location.reload()} />
                         <TextStyledPerfil onClick={returnCarrinho}>
                             {qtd.length} produto(s) no carrinho
                         </TextStyledPerfil>
@@ -52,7 +54,6 @@ const HeadPerfil = ({ onCarrinhoClick }: HeadPerfilProps) => {
                         <DivRestaurante>
                             <TextStyledRestaurante>{p.tipo}</TextStyledRestaurante>
                             <TextStyledRestaurante2>{p.restaurante}</TextStyledRestaurante2>
-
                         </DivRestaurante>
                     </>
                 ))}
