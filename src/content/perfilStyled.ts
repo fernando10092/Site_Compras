@@ -9,6 +9,7 @@ max-width: 100vw;
 display: grid;
 grid-template-columns: auto auto auto;
 column-gap: 0px;
+position: relative;
 
 @media (max-width: 790px){
 grid-template-columns: auto;

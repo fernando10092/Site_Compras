@@ -1,5 +1,5 @@
 // IMPORTAÇÕES
-import { HeaderStyledPerfil, ImagemStyledPerfil, LogoPerfil, TextStyledPerfil, ContainerStyledPerfil, ImagemStyledPerfilFood, DivRestaurante, TextStyledRestaurante, TextStyledRestaurante2 } from "./perfil";
+import { DivHero, ImgHero, TextHero, HeaderStyledPerfil, ImagemStyledPerfil, LogoPerfil, TextStyledPerfil, ContainerStyledPerfil, ImagemStyledPerfilFood, DivRestaurante, TextStyledRestaurante, TextStyledRestaurante2 } from "./perfil";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
 import { carrinhoVisible, listaChartReducer } from "../store/reducers/carrinhoReducer";
@@ -48,7 +48,8 @@ const HeadPerfil = ({ onCarrinhoClick }: HeadPerfilProps) => {
                 </ImagemStyledPerfil>
             </HeaderStyledPerfil>
 
-            <ImagemStyledPerfilFood>
+            <DivHero>
+
                 {dadosRestaurante.map((p) => (
                     <>
                         <DivRestaurante>
@@ -58,7 +59,22 @@ const HeadPerfil = ({ onCarrinhoClick }: HeadPerfilProps) => {
                     </>
                 ))}
 
-            </ImagemStyledPerfilFood>
+                <ImagemStyledPerfilFood src={hero} />
+
+
+            </DivHero>
+
+            {/*             <ImagemStyledPerfilFood>
+                {dadosRestaurante.map((p) => (
+                    <>
+                        <DivRestaurante>
+                            <TextStyledRestaurante>{p.tipo}</TextStyledRestaurante>
+                            <TextStyledRestaurante2>{p.restaurante}</TextStyledRestaurante2>
+                        </DivRestaurante>
+                    </>
+                ))}
+
+            </ImagemStyledPerfilFood> */}
         </>
     );
 };
