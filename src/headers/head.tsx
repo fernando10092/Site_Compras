@@ -1,12 +1,13 @@
 import { Header, Imagem, Textheader, Logo, Divheader } from ".";
 import logo from '../public/assets/logo.png';
+import vector from '../public/assets/Vector.png'
 
 //HEADER
 const Headinit = () => {
     return (
         <>
             <Header>
-                <Imagem>
+                <Imagem url={vector}>
                     <Divheader>
                         <Logo src={logo} onClick={()=>window.location.reload()} />
                     </Divheader>

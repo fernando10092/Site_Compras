@@ -14,10 +14,10 @@ import Entrega from "../components/entrega";
 import Cartao from "../components/cartao";
 import Finalizacao from "../components/finalizacao";
 import { isAction } from "@reduxjs/toolkit";
-import { ListaCarrinho3 } from "../products/listaAdd3";
+import { ListaCarrinho6 } from "../products/listaAdd6";
 
 //PERFIL
-const Perfil3 = () => {
+const Perfil6 = () => {
     //USEDISPATCH
     const dispatch = useDispatch();
     //USESELECTOR
@@ -89,7 +89,7 @@ const Perfil3 = () => {
             )}
             <Center>
                 <ContainerPerfil >
-                    {ListaCarrinho3.map((p, index) => (
+                    {ListaCarrinho6.map((p, index) => (
                         <Ul>
                             <CardPerfil key={index}>
                                 <ImagemCard src={p.img} />
@@ -109,4 +109,4 @@ const Perfil3 = () => {
     );
 };
 
-export default Perfil3;
+export default Perfil6;

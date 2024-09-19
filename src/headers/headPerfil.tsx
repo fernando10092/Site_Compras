@@ -5,6 +5,7 @@ import { RootState } from "../store";
 import { carrinhoVisible, listaChartReducer } from "../store/reducers/carrinhoReducer";
 import { useNavigate } from "react-router-dom";
 import logo from '../public/assets/logo.png';
+import vector from '../public/assets/Vector.png';
 import hero from '../public/assets/fooditaliana.png';
 
 //TIPO
@@ -37,7 +38,7 @@ const HeadPerfil = ({ onCarrinhoClick }: HeadPerfilProps) => {
     return (
         <>
             <HeaderStyledPerfil>
-                <ImagemStyledPerfil>
+                <ImagemStyledPerfil img={vector}>
                     <ContainerStyledPerfil>
                         <TextStyledPerfil onClick={funcHome}>Restaurantes</TextStyledPerfil>
                         <LogoPerfil src={logo} onClick={() => navigate(0)} />

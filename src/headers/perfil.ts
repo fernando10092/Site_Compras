@@ -8,9 +8,12 @@ height: 186px;
 top: -24px;
 text-align: center;
 `
+type imagem = {
+    img: string;
+}
 //Imagem
-export const ImagemStyledPerfil = styled.div`
-background-image: url('/src/public/assets/Vector.png');
+export const ImagemStyledPerfil = styled.div<imagem>`
+background-image: url('${(e)=>e.img}');
 background-color: #FFEBD9;
 max-width: 100vw;
 height: 186px;
@@ -54,13 +57,18 @@ position: absolute;
 export const ImagemStyledPerfilFood = styled.img`
 background-image: url('../src/public/assets/fooditaliana.png');
 height: 280px;
-max-width: 100vw;
+max-width: 100%;
+margin-bottom: 25px;
 `
 //DIV RESTAURANTE
 export const DivRestaurante = styled.div`
 height: 280px;
 padding: 20px;
 position: absolute;
+margin-left: 130px;
+@media (max-width: 790px){
+margin-left: 0px;
+}
 `
 //
 //TEXT RESTAURANTE

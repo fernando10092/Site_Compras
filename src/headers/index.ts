@@ -9,8 +9,11 @@ top: -24px;
 text-align: center;
 `
 //Imagem
-export const Imagem = styled.div`
-background-image: url('/assets/Vector.png');
+type imagem = {
+    url: string;
+}
+export const Imagem = styled.div<imagem>`
+background-image: url('${(e)=>e.url}');
 background-color: #FFEBD9;
 max-width: 100vw;
 height: 384px;

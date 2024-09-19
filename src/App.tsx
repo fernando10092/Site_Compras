@@ -11,6 +11,7 @@ import Modal from "./components/modal";
 import { store } from "./store";
 import { Provider } from "react-redux";
 import Entrega from "./components/entrega";
+import Perfil6 from "./content/perfil6";
 
 //APLICAÇÃO
 const App = () => {
@@ -28,7 +29,7 @@ const App = () => {
               <Route path="/perfil3" element={<Perfil3 />} />
               <Route path="/perfil4" element={<Perfil4 />} />
               <Route path="/perfil5" element={<Perfil5 />} />
-              
+              <Route path="/perfil6" element={<Perfil6 />} />
             </Route>
           </Routes>
         </BrowserRouter>

@@ -1,4 +1,12 @@
 import styled from 'styled-components';
+//Center
+export const Center = styled.div`
+min-height: 125vh;
+width: 76.5%;
+text-align: justify;
+margin: 0 auto;
+padding: 0px;
+`
 
 //Container
 export const ContainerPerfil = styled.div`
@@ -22,6 +30,10 @@ grid-template-columns: auto auto;
 //UL
 export const Ul = styled.ul`
 text-align: center;
+margin-bottom: 10px;
+padding: 0px;
+width: 320px;
+height: 338px;
 `
 
 //Card LI
@@ -31,7 +43,7 @@ width: 320px;
 height: 338px;
 text-align: center;
 padding: 5px;
-margin: 10px;
+margin: 5px;
 list-style: none;
 
 `
@@ -48,6 +60,7 @@ export const NomeProdutoPerfil = styled.h1`
 color: #FFEBD9;
 font-size: 16px;
 text-align: left;
+padding-left: 5px;
 `
 
 //Descrição
@@ -55,6 +68,7 @@ export const DescricaoPerfil = styled.p`
 color: #FFEBD9;
 font-size: 14px;
 text-align: left;
+padding-left: 5px;
 `
 
 //Botão

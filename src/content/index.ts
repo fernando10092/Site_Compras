@@ -42,7 +42,7 @@ height: 26px;
 position: absolute;
 align-content: center;
 top: 8px;
-left: 150px;
+left: 260px;
 
 `
 
@@ -63,8 +63,11 @@ right: 16px;
 export const Conteudo = styled.div`
 display: block;
 padding: 10px;
+background-color: #FFFFFF;
 `
-
+export const ConteBtn = styled.div`
+text-align: start;
+`
 //BOTÃO
 export const Botao = styled.button`
 background-color: #E66767;
@@ -86,6 +89,7 @@ height: 20px;
 export const Paragrafo = styled.p`
 color: #E66767;
 font-size: 14px;
+text-align: justify;
 @media (max-width: 780px){
 margin:0px;
 width: 85%;
@@ -121,5 +125,5 @@ display: flex;
 export const Estrela = styled.img`
 width: 21px;
 height: 21px;
-
+margin-left: 8px;
 `

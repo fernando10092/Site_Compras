@@ -3,6 +3,7 @@ import pasta from '../public/assets/pasta.png';
 import macaron from '../public/assets/macaron.jpg';
 import esfiha from '../public/assets/esfiha.jpg';
 import lasanha from '../public/assets/lasanha.jpg';
+import tapioca from '../public/assets/tapioca.jpg';
 export const ListaProduct = [
     {
         id: 1,
@@ -44,5 +45,13 @@ export const ListaProduct = [
         descricao: "Delicie-se com nossa lasanha artesanal, preparada com camadas generosas de massa fresca, molhos caseiros e recheios irresistíveis. Seja à bolonhesa, quatro queijos ou vegetariana. Peça já e tenha o melhor da culinária italiana no conforto da sua casa!",
         comida: "Portuguesa",
         imagem: lasanha
+    },
+    {
+        id: 6,
+        nome: "Restaurante Brasil",
+        nota: 3.5,
+        descricao: "Experimente nossa deliciosa tapioca artesanal, feita com massa leve de fécula de mandioca e recheios irresistíveis. Escolha entre opções doces ou salgadas, como coco com leite condensado, queijo derretido ou carne seca. Peça já e saboreie essa iguaria brasileira no conforto da sua casa!",
+        comida: "Brasileira",
+        imagem: tapioca
     },
 ]

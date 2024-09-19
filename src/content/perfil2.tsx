@@ -1,7 +1,7 @@
 // IMPORTAÇÕES
 import React, { useEffect, useRef, useState } from "react";
 import HeadPerfil from "../headers/headPerfil";
-import { ContainerPerfil, Ul, CardPerfil, ImagemCard, NomeProdutoPerfil, DescricaoPerfil, BotaoPerfil } from "./perfilStyled";
+import { ContainerPerfil, Center, Ul, CardPerfil, ImagemCard, NomeProdutoPerfil, DescricaoPerfil, BotaoPerfil } from "./perfilStyled";
 import marguerita from '../public/assets/marguerita.png';
 import { ListaCarrinho } from "../products/listaAdd";
 import Modal from "../components/modal";
@@ -44,7 +44,7 @@ const Perfil2 = () => {
     const [serve, setServe] = useState<string>();
     const [valores, setValores] = useState<string>();
 
-    const adicionado = useSelector((state: RootState)=>state.carrinho.addCarrinho)
+    const adicionado = useSelector((state: RootState) => state.carrinho.addCarrinho)
 
     const showModal = () => {
         dispatch(callModal2(true));
@@ -87,20 +87,22 @@ const Perfil2 = () => {
                     <Carrinho />
                 </div>
             )}
-            <ContainerPerfil >
-                {ListaCarrinho2.map((p, index) => (
-                    <Ul>
-                        <CardPerfil key={index}>
-                            <ImagemCard src={p.img} />
-                            <NomeProdutoPerfil>{p.produto}</NomeProdutoPerfil>
-                            <DescricaoPerfil>{p.descricao}</DescricaoPerfil>
-                            <BotaoPerfil onClick={
-                                ()=>{dispatch(addCarrinho({index:index,img:p.img,produto:p.produto,descricao:p.descricao,serve:p.serve,valor:p.valor})); showModal()}
-                            }>Adicionar ao carrinho</BotaoPerfil>
-                        </CardPerfil>
-                    </Ul>
-                ))}
-            </ContainerPerfil>
+            <Center>
+                <ContainerPerfil >
+                    {ListaCarrinho2.map((p, index) => (
+                        <Ul>
+                            <CardPerfil key={index}>
+                                <ImagemCard src={p.img} />
+                                <NomeProdutoPerfil>{p.produto}</NomeProdutoPerfil>
+                                <DescricaoPerfil>{p.descricao}</DescricaoPerfil>
+                                <BotaoPerfil onClick={
+                                    () => { dispatch(addCarrinho({ index: index, img: p.img, produto: p.produto, descricao: p.descricao, serve: p.serve, valor: p.valor })); showModal() }
+                                }>Adicionar ao carrinho</BotaoPerfil>
+                            </CardPerfil>
+                        </Ul>
+                    ))}
+                </ContainerPerfil>
+            </Center>
 
             <Rodapecomponents />
         </>
