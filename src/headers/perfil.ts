@@ -57,8 +57,9 @@ position: absolute;
 export const ImagemStyledPerfilFood = styled.img`
 background-image: url('../src/public/assets/fooditaliana.png');
 height: 280px;
-max-width: 100%;
+width: 100vw;
 margin-bottom: 25px;
+object-fit: cover;
 `
 //DIV RESTAURANTE
 export const DivRestaurante = styled.div`

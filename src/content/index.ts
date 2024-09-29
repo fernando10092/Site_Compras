@@ -3,7 +3,7 @@ import styled from 'styled-components';
 //LISTA
 export const Lista = styled.li`
 width: 472px;
-height: 398px;
+height: 415px;
 list-style: none;
 border: solid #E66767;
 border-width: 1px;
@@ -19,6 +19,8 @@ width: 90%;
 //CONTAINER FOTO
 export const Containerfoto = styled.div`
 position: relative;
+height: 215px;
+background-color: #FFFFFF;
 `
 
 //IMAGEM
@@ -26,6 +28,7 @@ export const Imagem = styled.img`
 object-fit: cover;
 width: 472px;
 height: 217px;
+background-color: #FFFFFF;
 @media (max-width: 780px){
 margin:0px;
 width: 100%;
@@ -42,7 +45,7 @@ height: 26px;
 position: absolute;
 align-content: center;
 top: 8px;
-left: 260px;
+left: 320px;
 
 `
 

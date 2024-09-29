@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import logo from '../public/assets/logo.png';
 import vector from '../public/assets/Vector.png';
 import hero from '../public/assets/fooditaliana.png';
+import { useEffect, useState } from "react";
 
 //TIPO
 type HeadPerfilProps = {
@@ -35,6 +36,17 @@ const HeadPerfil = ({ onCarrinhoClick }: HeadPerfilProps) => {
 
     //USESELECTOR
     const dadosRestaurante = useSelector((state: RootState) => state.carrinho.restaurante);
+    const numberRestaurante = useSelector((state: RootState) => state.carrinho.numRestaurante);
+
+    //USEEFFECT E FETCH
+    const [restaurantetipo, setRestaurantetipo] = useState([]);
+    const [restaurantetitulo, setRestaurantetitulo] = useState([]);
+    const [restauranteimg, setRestauranteimg] = useState<string>();
+    useEffect(() => {
+        fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes').then((res) => res.json()).then((res) => {
+            setRestaurantetipo(res[numberRestaurante]['tipo']); setRestaurantetitulo(res[numberRestaurante]['titulo']);setRestauranteimg(res[numberRestaurante]['capa'])});
+    }, []);
+
     return (
         <>
             <HeaderStyledPerfil>
@@ -51,16 +63,16 @@ const HeadPerfil = ({ onCarrinhoClick }: HeadPerfilProps) => {
 
             <DivHero>
 
-                {dadosRestaurante.map((p) => (
-                    <>
-                        <DivRestaurante>
-                            <TextStyledRestaurante>{p.tipo}</TextStyledRestaurante>
-                            <TextStyledRestaurante2>{p.restaurante}</TextStyledRestaurante2>
-                        </DivRestaurante>
-                    </>
-                ))}
 
-                <ImagemStyledPerfilFood src={hero} />
+                <>
+                    <DivRestaurante>
+                        <TextStyledRestaurante>{restaurantetipo}</TextStyledRestaurante>
+                        <TextStyledRestaurante2>{restaurantetitulo}</TextStyledRestaurante2>
+                    </DivRestaurante>
+                </>
+                <ImagemStyledPerfilFood src={restauranteimg} />
+
+
 
 
             </DivHero>

@@ -48,6 +48,7 @@ type Props = {
     deleteCarrinho: boolean,
     restaurante: Restaurante[];
     selectRestaurante: string;
+    numRestaurante: number
 };
 
 const initialState: Props = {
@@ -66,7 +67,8 @@ const initialState: Props = {
     addCarrinho: [],
     deleteCarrinho: false,
     restaurante: [],
-    selectRestaurante: ""
+    selectRestaurante: "",
+    numRestaurante: 0
 };
 
 export const carrinhoSlice = createSlice({
@@ -123,10 +125,13 @@ export const carrinhoSlice = createSlice({
         },
         selecionado:(state, action)=>{
             state.selectRestaurante = action.payload
+        },
+        numeracaorestaurante: (state, action)=>{
+            state.numRestaurante = action.payload;
         }
     },
 });
 
-export const { adicionarItem, valorItem, callModal2, toggleCarrinho, listaChartReducer, excluirItem, excluirValor, carrinhoVisible, entregaVisible, cartaoVisible, concluirVisible, dadosCompra, addCarrinho, delCarrinho, restaurante, restauranteErase, selecionado } = carrinhoSlice.actions;
+export const { adicionarItem, valorItem, callModal2, toggleCarrinho, listaChartReducer, excluirItem, excluirValor, carrinhoVisible, entregaVisible, cartaoVisible, concluirVisible, dadosCompra, addCarrinho, delCarrinho, restaurante, restauranteErase, selecionado, numeracaorestaurante } = carrinhoSlice.actions;
 
 export default carrinhoSlice.reducer;
