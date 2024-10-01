@@ -1,5 +1,22 @@
 import styled from 'styled-components';
 
+//CONTAINER LISTA
+export const ContainerLista = styled.div`
+display: grid;
+grid-template-columns: auto auto;
+text-align: center;
+width: 100%;
+margin: 0 auto;
+padding-top: 25px;
+padding-bottom: 25px;
+justify-content: center;
+
+@media (max-width: 780px){
+grid-template-columns: auto;
+}
+
+`
+
 //LISTA
 export const Lista = styled.li`
 width: 472px;
@@ -7,19 +24,21 @@ height: 415px;
 list-style: none;
 border: solid #E66767;
 border-width: 1px;
-display: inline-grid;
-margin: 50px;
+display: grid;
+margin: 30px;
+
 
 @media (max-width: 780px){
 margin:10px;
 width: 90%;
+margin: 10px;
 }
 `
 
 //CONTAINER FOTO
 export const Containerfoto = styled.div`
 position: relative;
-height: 215px;
+
 background-color: #FFFFFF;
 `
 
@@ -83,8 +102,7 @@ font-size: 14px;
 cursor: pointer;
 @media (max-width: 780px){
 margin-top: 5px;
-width: 72px;
-height: 20px;
+width: 110px;
 }
 `
 
