@@ -26,7 +26,7 @@ min-height: 100%;
 left: 0px;
 
 @media (max-width: 790px){
-width: 38%;
+width: 19%;
 }
 `
 
@@ -41,7 +41,7 @@ position: absolute;
 z-index: 1001;
 overflow-y: auto;
 @media (max-width: 790px){
-width: 60%;
+width: 80%;
 }
 `
 export const Ul = styled.ul`

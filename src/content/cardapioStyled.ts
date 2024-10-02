@@ -21,6 +21,7 @@ position: relative;
 
 @media (max-width: 790px){
 grid-template-columns: auto;
+left: 0px;
 }
 
 @media (min-width: 791px) and (max-width: 1020px){

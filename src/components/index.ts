@@ -37,11 +37,13 @@ display: grid;
 grid-template-columns: auto auto;
 
 @media (max-width: 791px){
-width: 60%;
+margin-top: 0px;
+left: 0px;
+height: 100vh;
 display: block;
-height: 700px;
 position: relative;
-overflow-y: scroll;
+grid-template-columns: 1fr;
+padding: 10px;
 }
 
 `
@@ -72,7 +74,10 @@ width: 656px;
 height: 280px;
 padding: 25px;
 text-align: justify;
-
+@media (max-width: 791px){
+margin-top: 30px;
+display: block;
+}
 `
 
 //Titulo
@@ -117,6 +122,9 @@ color: #E66767;
 background-color: #FFFFFF;
 cursor: pointer;
 border: none;
+@media (max-width: 791px){
+margin-top: 20px;
+}
 `
 
 //Div Add

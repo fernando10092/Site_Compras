@@ -65,6 +65,9 @@ position: absolute;
 align-content: center;
 top: 8px;
 left: 320px;
+@media (max-width: 780px){
+left: 150px;
+}
 
 `
 
