@@ -2,22 +2,24 @@ import styled from 'styled-components';
 //Center
 export const Center = styled.div`
 min-height: 125vh;
-width: 76.5%;
-text-align: justify;
-margin: 0 auto;
 padding: 0px;
+justify-content: center;
+text-align: center;
+margin-bottom: 15px;
+max-width: 100vw;
 `
 
 //Container
 export const ContainerPerfil = styled.div`
 text-align: center;
-margin: 0px;
+margin: 0 auto;
 padding: 0px;
-max-width: 100vw;
+width: 80%;
 display: grid;
 grid-template-columns: auto auto auto;
 column-gap: 0px;
 position: relative;
+justify-content: center;
 
 @media (max-width: 790px){
 grid-template-columns: auto;
@@ -31,7 +33,7 @@ grid-template-columns: auto auto;
 //UL
 export const Ul = styled.ul`
 text-align: center;
-margin-bottom: 10px;
+margin: 15px;
 padding: 0px;
 width: 320px;
 height: 338px;

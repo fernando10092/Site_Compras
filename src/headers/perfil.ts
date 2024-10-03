@@ -45,7 +45,8 @@ export const DivHero = styled.div`
 position: relative;
 `
 //NOVO
-export const ImgHero = styled.img`
+export const ImgHero = styled.div`
+
 
 `
 //NOVO
@@ -57,7 +58,7 @@ position: absolute;
 export const ImagemStyledPerfilFood = styled.img`
 background-image: url('../src/public/assets/fooditaliana.png');
 height: 280px;
-width: 100vw;
+width: 100%;
 margin-bottom: 25px;
 object-fit: cover;
 `
@@ -66,7 +67,7 @@ export const DivRestaurante = styled.div`
 height: 280px;
 padding: 20px;
 position: absolute;
-margin-left: 130px;
+max-width: 100vw;
 @media (max-width: 790px){
 margin-left: 0px;
 }
@@ -77,6 +78,7 @@ export const TextStyledRestaurante = styled.h1`
 color: #FFFFFF;
 font-size: 32px;
 margin-bottom: 70px;
+margin-left: 130px;
 
 `
 //TEXT RESTAURANTE
@@ -84,5 +86,6 @@ export const TextStyledRestaurante2 = styled.h1`
 color: #FFFFFF;
 font-size: 32px;
 font-weight: 900px;
+margin-left: 130px;
 
 `

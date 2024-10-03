@@ -44,7 +44,8 @@ const HeadPerfil = ({ onCarrinhoClick }: HeadPerfilProps) => {
     const [restauranteimg, setRestauranteimg] = useState<string>();
     useEffect(() => {
         fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes').then((res) => res.json()).then((res) => {
-            setRestaurantetipo(res[numberRestaurante]['tipo']); setRestaurantetitulo(res[numberRestaurante]['titulo']);setRestauranteimg(res[numberRestaurante]['capa'])});
+            setRestaurantetipo(res[numberRestaurante]['tipo']); setRestaurantetitulo(res[numberRestaurante]['titulo']); setRestauranteimg(res[numberRestaurante]['capa'])
+        });
     }, []);
 
     return (
@@ -70,7 +71,11 @@ const HeadPerfil = ({ onCarrinhoClick }: HeadPerfilProps) => {
                         <TextStyledRestaurante2>{restaurantetitulo}</TextStyledRestaurante2>
                     </DivRestaurante>
                 </>
-                <ImagemStyledPerfilFood src={restauranteimg} />
+
+                <ImgHero><ImagemStyledPerfilFood src={restauranteimg} /></ImgHero>
+                    
+
+
 
 
 
