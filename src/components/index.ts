@@ -54,11 +54,13 @@ width: 280px;
 height: 344px;
 align-content: center;
 grid-template-columns: auto;
+text-align: center;
 
 @media (max-width: 791px){
 margin: 5px;
-width: 90%;
-height: 20%;
+width: 100%;
+height: 23%;
+
 }
 `
 
