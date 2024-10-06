@@ -57,7 +57,6 @@ grid-template-columns: auto;
 text-align: center;
 
 @media (max-width: 791px){
-margin: 5px;
 width: 100%;
 height: 23%;
 
@@ -83,7 +82,8 @@ padding: 25px;
 text-align: justify;
 @media (max-width: 791px){
 display: block;
-width: 90%;
+width: 100%;
+padding: 0px;
 }
 `
 
