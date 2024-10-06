@@ -58,7 +58,7 @@ text-align: center;
 
 @media (max-width: 791px){
 width: 100%;
-height: 15%;
+height: 5%;
 
 }
 `
