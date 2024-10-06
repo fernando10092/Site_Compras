@@ -21,18 +21,18 @@ export const ContClickExit = styled.div`
 background-color:  rgba(0, 0, 0, 0.7);
 position: absolute;
 z-index: 1002;
-width: 72.5%;
+width: 71.5%;
 min-height: 100%;
 left: 0px;
 
 @media (max-width: 790px){
-width: 19%;
+width: 16.5%;
 }
 `
 
 export const ContainerCarrinho = styled.div`
 background-color: #E66767;
-padding: 5px;
+padding: 10px;
 top: 0px;
 right: 0px;
 width: 27%;
@@ -69,8 +69,8 @@ width: 95%;
 `
 
 export const ImgCarrinho = styled.img`
-width: 80px;
-height: 80px;
+width: 90px;
+height: 90px;
 `
 
 export const ContainerText = styled.div`
@@ -129,28 +129,41 @@ width: 95%;
 export const TitleDelivery = styled.h2`
 font-size: 16px;
 color: #FFEBD9;
+width: 80%;
 `
 
-export const LabelText = styled.label`
+type Mg = {
+    margin?: string;
+}
+export const LabelText = styled.label<Mg>`
 font-size: 14px;
 color: #FFEBD9;
-display: inline-block;
+display: block;
+margin-left: ${(e)=> e.margin}px;
 `
 export const DivSmall = styled.div`
-width: 175px;
+width: 172px;
 height: 64px;
 margin-top: 10px;
 display: inline-block;
+text-align: justify;
+justify-content: space-between;
+margin: 0px;
+padding: 0px;
 `
 
 type Mod = {
     width: number;
     display: string;
+    margin?: string;
 }
 export const InputDelivery = styled.input<Mod>`
 width: ${(e)=>e.width}px;
 height: 32px;
 border: none;
+margin: 0px;
+margin-left: ${(e)=>e.margin}px;
+padding: 0px;
 display: ${(e)=>e.display};
 `
 

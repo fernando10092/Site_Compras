@@ -1,5 +1,5 @@
 // IMPORTAÇÕES
-import { DivHero, ImgHero, TextHero, HeaderStyledPerfil, ImagemStyledPerfil, LogoPerfil, TextStyledPerfil, ContainerStyledPerfil, ImagemStyledPerfilFood, DivRestaurante, TextStyledRestaurante, TextStyledRestaurante2 } from "./perfil";
+import { DivHero, ImgHero, HeaderStyledPerfil, ContLogo, ImagemStyledPerfil, LogoPerfil, TextStyledPerfil, ContainerStyledPerfil, ImagemStyledPerfilFood, DivRestaurante, TextStyledRestaurante, TextStyledRestaurante2 } from "./perfil";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
 import { carrinhoVisible, listaChartReducer } from "../store/reducers/carrinhoReducer";
@@ -54,7 +54,9 @@ const HeadPerfil = ({ onCarrinhoClick }: HeadPerfilProps) => {
                 <ImagemStyledPerfil img={vector}>
                     <ContainerStyledPerfil>
                         <TextStyledPerfil onClick={funcHome}>Restaurantes</TextStyledPerfil>
-                        <LogoPerfil src={logo} onClick={() => navigate(0)} />
+                        <ContLogo>
+                            <LogoPerfil src={logo} onClick={() => navigate(0)} />
+                        </ContLogo>
                         <TextStyledPerfil onClick={returnCarrinho}>
                             {qtd.length} produto(s) no carrinho
                         </TextStyledPerfil>
@@ -73,12 +75,6 @@ const HeadPerfil = ({ onCarrinhoClick }: HeadPerfilProps) => {
                 </>
 
                 <ImgHero><ImagemStyledPerfilFood src={restauranteimg} /></ImgHero>
-                    
-
-
-
-
-
 
             </DivHero>
 

@@ -15,7 +15,7 @@ const Cartao = () => {
         if (nome && numero && cvv && mes && ano != "") {
             dispatch(cartaoVisible(false));
             dispatch(concluirVisible(true));
-        }else{
+        } else {
             alert("Preencha todos os campos");
         }
     }
@@ -44,14 +44,15 @@ const Cartao = () => {
                     <LabelText>Nome no cartão</LabelText>
                     <InputDelivery onChange={(event) => setNome(event.target.value)} width={344} display="block"></InputDelivery>
 
+                    <br />
                     <DivSmall>
                         <LabelText>Número do cartão</LabelText>
-                        <InputDelivery onChange={(event) => setNumero(event.target.value)} width={155} display="inline-block"></InputDelivery>
+                        <InputDelivery onChange={(event) => setNumero(event.target.value)} width={230} display="inline-block"></InputDelivery>
                     </DivSmall>
 
                     <DivSmall>
-                        <LabelText>CVV</LabelText>
-                        <InputDelivery onChange={(event) => setCvv(event.target.value)} width={155} display="inline-block"></InputDelivery>
+                        <LabelText margin="90">CVV</LabelText>
+                        <InputDelivery onChange={(event) => setCvv(event.target.value)} margin="90" width={80} display="inline-block"></InputDelivery>
                     </DivSmall>
 
                     <DivSmall>
@@ -60,8 +61,8 @@ const Cartao = () => {
                     </DivSmall>
 
                     <DivSmall>
-                        <LabelText>Ano de vencimento</LabelText>
-                        <InputDelivery onChange={(event) => setAno(event.target.value)} width={155} display="inline-block"></InputDelivery>
+                        <LabelText margin="15">Ano de vencimento</LabelText>
+                        <InputDelivery margin="15" onChange={(event) => setAno(event.target.value)} width={155} display="inline-block"></InputDelivery>
                     </DivSmall>
 
                     <BotaoContinuar onClick={goConcluir}>Finalizar pagamento</BotaoContinuar>

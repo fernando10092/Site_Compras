@@ -116,12 +116,14 @@ border: none;
 
 //Botao Close
 export const BotaoClose = styled.button`
-width: 20px;
-height: 20px;
-color: #E66767;
-background-color: #FFFFFF;
+width: 25px;
+height: 25px;
+color: #FFFFFF;
+font-weight: bold;
+background-color: rgb(0,0,0,0.1);
 cursor: pointer;
 border: none;
+
 @media (max-width: 791px){
 margin-top: 20px;
 }

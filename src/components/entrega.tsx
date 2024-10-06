@@ -65,7 +65,7 @@ const Entrega = () => {
 
                     <DivSmall>
                         <LabelText>Número</LabelText>
-                        <InputDelivery onChange={(event) => setNumero(event.target.value)} width={155} display="inline-block" />
+                        <InputDelivery onChange={(event) => setNumero(event.target.value)} width={172} display="inline-block" />
                     </DivSmall>
                     <LabelText>Complemento (opcional)</LabelText>
                     <InputDelivery onChange={(event) => setComplemento(event.target.value)} width={344} display="block"></InputDelivery>

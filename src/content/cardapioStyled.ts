@@ -42,19 +42,22 @@ height: 338px;
 //Card LI
 export const CardPerfil = styled.li`
 background-color: #E66767;
-width: 320px;
+min-width: 320px;
 height: 338px;
 text-align: center;
-padding: 5px;
+padding: 7px;
 margin: 5px;
 list-style: none;
+display: flex;
+flex-wrap: wrap;
 
 `
 
 //Imagem
 export const ImagemCard = styled.img`
-width: 304px;
+width: 100%;
 height: 167px;
+align-itens: center;
 object-fit: fill;
 `
 
@@ -63,7 +66,8 @@ export const NomeProdutoPerfil = styled.h1`
 color: #FFEBD9;
 font-size: 16px;
 text-align: left;
-padding-left: 5px;
+padding: 0px;
+margin: 0px;
 `
 
 //Descrição
@@ -71,15 +75,18 @@ export const DescricaoPerfil = styled.p`
 color: #FFEBD9;
 font-size: 14px;
 text-align: left;
-padding-left: 5px;
+width: 100%;
+padding: 0px;
+margin: 0px;
 `
 
 //Botão
 export const BotaoPerfil = styled.button`
 background-color: #FFEBD9;
 color: #E66767;
-width: 304px;
+width: 100%;
 height: 24px;
 border: none;
 cursor: pointer;
+text-align: center;
 `
