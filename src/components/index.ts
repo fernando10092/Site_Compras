@@ -68,7 +68,7 @@ width: 100%;
 height: 200px;
 @media (max-width: 791px){
 width: 90%;
-height: 20%;
+height: 100px;
 }
 
 `
@@ -80,8 +80,8 @@ height: 280px;
 padding: 25px;
 text-align: justify;
 @media (max-width: 791px){
-margin-top: 30px;
 display: block;
+width: 90%;
 }
 `
 
