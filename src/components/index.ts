@@ -81,6 +81,7 @@ height: 280px;
 padding: 25px;
 text-align: justify;
 @media (max-width: 791px){
+margin-top: 0px;
 display: block;
 width: 100%;
 padding: 0px;
