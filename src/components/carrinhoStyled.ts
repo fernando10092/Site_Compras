@@ -176,5 +176,4 @@ margin-left: 10px;
 export const Paragrafo = styled.p`
 color: #FFEBD9;
 font-size: 14px;
-
 `
