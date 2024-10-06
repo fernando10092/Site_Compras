@@ -91,6 +91,7 @@ font-size: 18px;
 color: #FFFFFF;
 @media (max-width: 791px){
 font-size: 14px;
+width: 100%;
 }
 `
 //Paragrafo
@@ -100,7 +101,7 @@ color: #FFFFFF;
 @media (max-width: 791px){
 font-size: 12px;
 margin: 5px;
-width: 30%;
+width: 100%;
 }
 `
 //Container BTN
