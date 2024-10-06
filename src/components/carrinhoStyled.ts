@@ -141,7 +141,7 @@ color: #FFEBD9;
 display: block;
 margin-left: ${(e)=> e.margin}px;
 @media (max-width: 790px){
-margin-left: 70px;
+margin-left: 10px;
 }
 `
 export const DivSmall = styled.div`
@@ -169,7 +169,7 @@ margin-left: ${(e)=>e.margin}px;
 padding: 0px;
 display: ${(e)=>e.display};
 @media (max-width: 790px){
-margin-left: 70px;
+margin-left: 10px;
 }
 `
 
