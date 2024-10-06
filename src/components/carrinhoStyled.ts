@@ -140,6 +140,9 @@ font-size: 14px;
 color: #FFEBD9;
 display: block;
 margin-left: ${(e)=> e.margin}px;
+@media (max-width: 790px){
+margin-left: 70px;
+}
 `
 export const DivSmall = styled.div`
 width: 172px;
