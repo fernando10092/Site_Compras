@@ -165,6 +165,9 @@ margin: 0px;
 margin-left: ${(e)=>e.margin}px;
 padding: 0px;
 display: ${(e)=>e.display};
+@media (max-width: 790px){
+margin-left: 70px;
+}
 `
 
 export const Paragrafo = styled.p`
