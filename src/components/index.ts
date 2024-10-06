@@ -25,16 +25,18 @@ z-index: 1000;
 //Container
 export const ContStyledModal = styled.div<Props>`
 background-color: #E66767;
-width: 75%;
+width: 1024px;
 height: 344px;
 margin: 0 auto;
 margin-top: 100px;
 padding: 25px;
 position: absolute;
-left: 100px;
+top: 5%;
+
 opacity: 1;
 display: grid;
 grid-template-columns: auto auto;
+text-align: center;
 
 @media (max-width: 791px){
 margin-top: 0px;

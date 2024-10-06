@@ -26,9 +26,9 @@ justify-content: space-around;
 export const ContainerStyledPerfil = styled.div`
 display: flex;
 justify-content: space-around;
-max-width: 100%;
-padding-left: 45px;
-padding-right: 45px;
+max-width: 100vw;
+padding-left: 10%;
+padding-right: 10%;
 
 @media (max-width: 790px){
 display: block;
@@ -84,13 +84,13 @@ object-fit: cover;
 //DIV RESTAURANTE
 export const DivRestaurante = styled.div`
 height: 280px;
-padding-left: 170px;
-padding-right: 170px;
+padding-left: 20%;
+padding-right: 20%;
 position: absolute;
 max-width: 100vw;
 @media (max-width: 790px){
-padding-left: 30px;
-padding-right: 30px;
+padding-left: 5%;
+padding-right: 5%px;
 }
 `
 //
