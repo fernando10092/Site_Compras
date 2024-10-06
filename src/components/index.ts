@@ -32,7 +32,6 @@ margin-top: 100px;
 padding: 25px;
 position: absolute;
 top: 5%;
-
 opacity: 1;
 display: grid;
 grid-template-columns: auto auto;
@@ -41,8 +40,8 @@ text-align: center;
 @media (max-width: 791px){
 margin-top: 0px;
 left: 0px;
-height: 100vh;
-display: block;
+height: 80vh;
+width: 90%;
 position: relative;
 grid-template-columns: 1fr;
 padding: 10px;
