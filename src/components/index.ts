@@ -68,7 +68,7 @@ width: 100%;
 height: 200px;
 @media (max-width: 791px){
 width: 90%;
-height: 100px;
+height: 90%;
 }
 
 `
