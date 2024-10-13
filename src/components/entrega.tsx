@@ -16,16 +16,17 @@ const Entrega = () => {
     const [cidade, setCidade] = useState<string>();
     const [complemento, setComplemento] = useState<string>();
 
+    //
     const dispatch = useDispatch();
     const goBackDelivery = () => {
         dispatch(entregaVisible(false));
         dispatch(carrinhoVisible(true));
     }
-
+    //
     const idSelector = useSelector((state: RootState)=> state.carrinho.dados);
     const ident = date.getFullYear()+""+date.getMonth()+""+date.getDay()+""+date.getMilliseconds()//idSelector.length + 1;
     
-
+    //
     const goPay = () => {
         if(nome && endereco && cidade && cep && numero !=""){
             dispatch(dadosCompra({id:ident,nome:nome,endereco:endereco,cidade:cidade,cep:cep,numero:numero,complemento:complemento}));
