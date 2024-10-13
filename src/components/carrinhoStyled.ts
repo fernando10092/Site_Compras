@@ -4,30 +4,14 @@ type Opacidade = {
     opacidade: string;
 }
 
-export const ContainerCarrinhoBlack = styled.div<Opacidade>`
-position: fixed;
+export const BlackCarrinho = styled.div`
+position: absolute;
 top: 0;
 left: 0;
-right: 0;
-bottom: 0;
-background-color: rgba(0, 0, 0, ${(e)=>e.opacidade});
-display: flex;
-align-items: center;
-justify-content: center;
-z-index: 1000;
-
-`
-export const ContClickExit = styled.div`
-background-color:  rgba(0, 0, 0, 0.7);
-position: absolute;
-z-index: 1002;
-width: 71.5%;
-min-height: 100%;
-left: 0px;
-
-@media (max-width: 790px){
-width: 16.5%;
-}
+width: 100vw;
+min-height: 300vh;
+z-index: 1;
+background-color: rgb(0,0,0,0.7);
 `
 
 export const ContainerCarrinho = styled.div`
@@ -37,9 +21,10 @@ top: 0px;
 right: 0px;
 width: 27%;
 height: 100%;
-position: absolute;
-z-index: 1001;
+position: fixed;
+z-index: 2;
 overflow-y: auto;
+
 @media (max-width: 790px){
 width: 80%;
 }
@@ -56,7 +41,7 @@ list-style: none;
 
 export const ContainerItens = styled.div`
 background-color: #FFEBD9;
-width: 344px;
+width: 95%;
 height: 100px;
 display: flex;
 padding: 5px;
@@ -100,7 +85,7 @@ cursor: pointer;
 `
 
 export const ContainerDetalhes = styled.div`
-width: 100%;
+width: 95%;
 display: flex;
 justify-content: space-between;
 `
@@ -114,7 +99,7 @@ font-size: 16px;
 export const BotaoContinuar = styled.button`
 background-color: #FFEBD9;
 color: #E66767;
-width: 344px;
+width: 95%;
 height: 24px;
 border: none;
 margin-top: 30px;
@@ -144,24 +129,28 @@ margin-left: ${(e)=> e.margin}px;
 margin-left: 10px;
 }
 `
-export const DivSmall = styled.div`
-width: 172px;
+type DivControl = {
+    marginlf?: string;
+    width: string;
+}
+export const DivSmall = styled.div<DivControl>`
+width: ${(e)=>e.width};
 height: 64px;
 margin-top: 10px;
+margin-left: ${(e)=>e.marginlf};
 display: inline-block;
 text-align: justify;
 justify-content: space-between;
-margin: 0px;
 padding: 0px;
 `
 
 type Mod = {
-    width: number;
+    width: string;
     display: string;
     margin?: string;
 }
 export const InputDelivery = styled.input<Mod>`
-width: ${(e)=>e.width}px;
+width: ${(e)=>e.width};
 height: 32px;
 border: none;
 margin: 0px;

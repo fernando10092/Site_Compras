@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { ContainerCarrinho, BotaoContinuar, TitleDelivery, LabelText, InputDelivery, DivSmall, ContainerCarrinhoBlack, ContClickExit } from "./carrinhoStyled";
+import { ContainerCarrinho, BotaoContinuar, TitleDelivery, LabelText, InputDelivery, DivSmall } from "./carrinhoStyled";
 import { entregaVisible, carrinhoVisible, cartaoVisible, dadosCompra } from "../store/reducers/carrinhoReducer";
 import { useState } from "react";
 import { RootState } from "../store";
@@ -45,36 +45,33 @@ const Entrega = () => {
 
     return (
         <>
-            <ContainerCarrinhoBlack opacidade="0.4">
-                <ContClickExit onClick={closeCarrinho} />
+    
                 <ContainerCarrinho>
                     <TitleDelivery>
                         Entrega
                     </TitleDelivery>
                     <LabelText>Quem irá receber</LabelText>
-                    <InputDelivery onChange={(event) => setNome(event.target.value)} width={344} display="block" />
+                    <InputDelivery onChange={(event) => setNome(event.target.value)} width={"95%"} display="block" />
                     <LabelText>Endereço</LabelText>
-                    <InputDelivery onChange={(event) => setEndereco(event.target.value)} width={344} display="block" />
+                    <InputDelivery onChange={(event) => setEndereco(event.target.value)} width={"95%"} display="block" />
                     <LabelText>Cidade</LabelText>
-                    <InputDelivery onChange={(event) => setCidade(event.target.value)} width={344} display="block" />
+                    <InputDelivery onChange={(event) => setCidade(event.target.value)} width={"95%"} display="block" />
 
-                    <DivSmall>
+                    <DivSmall width="40%">
                         <LabelText>CEP</LabelText>
-                        <InputDelivery onChange={(event) => setCep(event.target.value)} width={155} display="inline-block" />
+                        <InputDelivery onChange={(event) => setCep(event.target.value)} width={"100%"} display="inline-block" />
                     </DivSmall>
 
-                    <DivSmall>
+                    <DivSmall width="40%" marginlf="13.5%">
                         <LabelText>Número</LabelText>
-                        <InputDelivery onChange={(event) => setNumero(event.target.value)} width={172} display="inline-block" />
+                        <InputDelivery onChange={(event) => setNumero(event.target.value)} width={"100%"} display="inline-block" />
                     </DivSmall>
                     <LabelText>Complemento (opcional)</LabelText>
-                    <InputDelivery onChange={(event) => setComplemento(event.target.value)} width={344} display="block"></InputDelivery>
+                    <InputDelivery onChange={(event) => setComplemento(event.target.value)} width={"95%"} display="block"></InputDelivery>
                     <BotaoContinuar onClick={goPay}>Continuar com o Pagamento</BotaoContinuar>
                     <BotaoContinuar type="submit" onClick={goBackDelivery}>Voltar para o carrinho</BotaoContinuar>
 
                 </ContainerCarrinho>
-
-            </ContainerCarrinhoBlack>
 
         </>
     )

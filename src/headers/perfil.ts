@@ -25,13 +25,29 @@ justify-content: space-around;
 //Container texthead
 export const ContainerStyledPerfil = styled.div`
 display: flex;
-justify-content: space-around;
-max-width: 100vw;
-padding-left: 10%;
-padding-right: 10%;
+justify-content: space-between;
+padding: 10px;
+
+@media (min-width: 2560px){
+max-width: 40%;
+margin: 0 auto;
+}
+
+@media (min-width: 1440px) and (max-width: 2559px){
+max-width: 70%;
+margin: 0 auto;
+}
+
+@media (min-width: 1024px) and (max-width: 1439px){
+max-width: 90%;
+margin: 0 auto;
+
+}
 
 @media (max-width: 790px){
 display: block;
+max-width: 95%;
+margin: 0 auto;
 }
 `
 export const ContLogo = styled.div`
@@ -84,10 +100,25 @@ object-fit: cover;
 //DIV RESTAURANTE
 export const DivRestaurante = styled.div`
 height: 280px;
-padding-left: 20%;
-padding-right: 20%;
 position: absolute;
 max-width: 100vw;
+padding: 10px;
+
+@media (min-width: 2560px){
+padding-left: 30%;
+padding-right: 30%;
+}
+
+@media (min-width: 1440px) and (max-width: 2559px){
+padding-left: 15%;
+padding-right: 15%;
+}
+
+@media (min-width: 1024px) and (max-width: 1439px){
+padding-left: 50px;
+padding-right: 50px;
+}
+
 @media (max-width: 790px){
 padding-left: 5%;
 padding-right: 5%px;

@@ -7,6 +7,7 @@ justify-content: center;
 text-align: center;
 margin-bottom: 15px;
 max-width: 100vw;
+
 `
 
 //Container

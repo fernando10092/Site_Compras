@@ -11,6 +11,8 @@ import Rodapecomponents from "../footer/rodape";
 import Entrega from "../components/entrega";
 import Cartao from "../components/cartao";
 import Finalizacao from "../components/finalizacao";
+import { BlackCarrinho } from "../components/carrinhoStyled";
+import { carrinhoVisible, entregaVisible as ev, cartaoVisible as cv } from "../store/reducers/carrinhoReducer";
 
 // Defina a interface para o tipo dos objetos no estado
 interface Produto {
@@ -81,20 +83,30 @@ const Cardapio = () => {
       .then((res) => setMeuestado(res[0]['cardapio']));
   }, []);
 
+  //Close
+  const handleClose = () => {
+    dispatch(carrinhoVisible(false));
+    dispatch(ev(false));
+    dispatch(cv(false));
+  }
+
   return (
     <>
       <HeadPerfil onCarrinhoClick={handleToggleCarrinho} />
       {modalVisible && <Modal />}
-      {carrinhoV && <Carrinho />}
+
+      {carrinhoV && <BlackCarrinho onClick={handleClose}/> }
+      {carrinhoV && <Carrinho/>}
+
+      {entregaVisible && <BlackCarrinho onClick={handleClose}/> }
       {entregaVisible && <Entrega />}
+
+      {cartaoVisible && <BlackCarrinho onClick={handleClose}/> }
       {cartaoVisible && <Cartao />}
+
+      {finalizacaoVisible && <BlackCarrinho/> }
       {finalizacaoVisible && <Finalizacao />}
 
-      {carrinhoVisivel && (
-        <div ref={carrinhoRef} style={{ position: 'relative', zIndex: 1000 }}>
-          <Carrinho />
-        </div>
-      )}
       <Center>
         <ContainerPerfil>
           {meuestado.map((e, index) => (

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { ContainerCarrinho, BotaoContinuar, TitleDelivery, LabelText, InputDelivery, DivSmall, ContainerCarrinhoBlack, ContClickExit } from "./carrinhoStyled";
+import { ContainerCarrinho, BotaoContinuar, TitleDelivery, LabelText, InputDelivery, DivSmall } from "./carrinhoStyled";
 import { entregaVisible, carrinhoVisible, cartaoVisible, concluirVisible } from "../store/reducers/carrinhoReducer";
 import { RootState } from "../store";
 import { useState } from "react";
@@ -35,42 +35,39 @@ const Cartao = () => {
 
     return (
         <>
-            <ContainerCarrinhoBlack opacidade="0.4">
-                <ContClickExit onClick={closeCarrinho} />
-                <ContainerCarrinho>
-                    <TitleDelivery>
-                        Pagamento - Valor a pagar R$ {listaReducer.reduce((acumulado, item) => acumulado + item.valor, 0).toFixed(2)}
-                    </TitleDelivery>
-                    <LabelText>Nome no cartão</LabelText>
-                    <InputDelivery onChange={(event) => setNome(event.target.value)} width={344} display="block"></InputDelivery>
 
-                    <br />
-                    <DivSmall>
-                        <LabelText>Número do cartão</LabelText>
-                        <InputDelivery onChange={(event) => setNumero(event.target.value)} width={230} display="inline-block"></InputDelivery>
-                    </DivSmall>
+            <ContainerCarrinho>
+                <TitleDelivery>
+                    Pagamento - Valor a pagar R$ {listaReducer.reduce((acumulado, item) => acumulado + item.valor, 0).toFixed(2)}
+                </TitleDelivery>
+                <LabelText>Nome no cartão</LabelText>
+                <InputDelivery onChange={(event) => setNome(event.target.value)} width={"95%"} display="block"></InputDelivery>
 
-                    <DivSmall>
-                        <LabelText margin="90">CVV</LabelText>
-                        <InputDelivery onChange={(event) => setCvv(event.target.value)} margin="90" width={80} display="inline-block"></InputDelivery>
-                    </DivSmall>
+                <br />
+                <DivSmall width="60%">
+                    <LabelText>Número do cartão</LabelText>
+                    <InputDelivery onChange={(event) => setNumero(event.target.value)} width={"100%"} display="inline-block"></InputDelivery>
+                </DivSmall>
 
-                    <DivSmall>
-                        <LabelText>Mês de vencimento</LabelText>
-                        <InputDelivery onChange={(event) => setMes(event.target.value)} width={155} display="inline-block"></InputDelivery>
-                    </DivSmall>
+                <DivSmall width="25%" marginlf="10%">
+                    <LabelText>CVV</LabelText>
+                    <InputDelivery onChange={(event) => setCvv(event.target.value)} width={"100%"} display="inline-block"></InputDelivery>
+                </DivSmall>
 
-                    <DivSmall>
-                        <LabelText margin="15">Ano de vencimento</LabelText>
-                        <InputDelivery margin="15" onChange={(event) => setAno(event.target.value)} width={155} display="inline-block"></InputDelivery>
-                    </DivSmall>
+                <DivSmall width="42.5%">
+                    <LabelText>Mês de vencimento</LabelText>
+                    <InputDelivery onChange={(event) => setMes(event.target.value)} width={"100%"} display="inline-block"></InputDelivery>
+                </DivSmall>
 
-                    <BotaoContinuar onClick={goConcluir}>Finalizar pagamento</BotaoContinuar>
-                    <BotaoContinuar onClick={goBackAdress}>Voltar para edição de endereço</BotaoContinuar>
+                <DivSmall width="42.5%" marginlf="10%">
+                    <LabelText>Ano de vencimento</LabelText>
+                    <InputDelivery onChange={(event) => setAno(event.target.value)} width={"100%"} display="inline-block"></InputDelivery>
+                </DivSmall>
 
-                </ContainerCarrinho>
+                <BotaoContinuar onClick={goConcluir}>Finalizar pagamento</BotaoContinuar>
+                <BotaoContinuar onClick={goBackAdress}>Voltar para edição de endereço</BotaoContinuar>
 
-            </ContainerCarrinhoBlack>
+            </ContainerCarrinho>
 
         </>
     )

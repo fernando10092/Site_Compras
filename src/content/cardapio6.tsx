@@ -11,6 +11,7 @@ import Rodapecomponents from "../footer/rodape";
 import Entrega from "../components/entrega";
 import Cartao from "../components/cartao";
 import Finalizacao from "../components/finalizacao";
+import { BlackCarrinho } from "../components/carrinhoStyled";
 
 // Defina a interface para o tipo dos objetos no estado
 interface Produto {
@@ -85,10 +86,10 @@ const Cardapio6 = () => {
     <>
       <HeadPerfil onCarrinhoClick={handleToggleCarrinho} />
       {modalVisible && <Modal />}
-      {carrinhoV && <Carrinho />}
-      {entregaVisible && <Entrega />}
-      {cartaoVisible && <Cartao />}
-      {finalizacaoVisible && <Finalizacao />}
+      {carrinhoV && <BlackCarrinho><Carrinho /></BlackCarrinho> }
+      {entregaVisible && <BlackCarrinho><Entrega /></BlackCarrinho>}
+      {cartaoVisible && <BlackCarrinho><Cartao /></BlackCarrinho>}
+      {finalizacaoVisible && <BlackCarrinho><Finalizacao /></BlackCarrinho>}
 
       {carrinhoVisivel && (
         <div ref={carrinhoRef} style={{ position: 'relative', zIndex: 1000 }}>

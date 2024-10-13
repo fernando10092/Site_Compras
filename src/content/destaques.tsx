@@ -41,11 +41,8 @@ const Destaques = () => {
             {
                 //meuestado.forEach((e) => { e['titulo']})
                 
-                meuestado.map((e) => (
-
-
-                    
-                        <Lista>
+                meuestado.map((e, index) => (
+                        <Lista key={index}>
                             <Containerfoto>
                                 <Imagem src={e['capa']} />
                                 <Textimage>
@@ -118,75 +115,6 @@ const Destaques = () => {
 
             }
             </ContainerLista>
-
-            {/* <ul>
-                {ListaProduct.map((p) =>
-                    <Lista>
-                        <Containerfoto>
-                            <Imagem src={p.imagem} />
-                            <Textimage>
-                                {p.destaque}
-                            </Textimage>
-                            <Textimage2>
-                                {p.comida}
-                            </Textimage2>
-                        </Containerfoto>
-                        <Conteudo>
-                            <Contetitle>
-                                <Titulo>
-                                    {p.nome}
-                                </Titulo>
-                                <Avaliacao>
-                                    <Titulo>
-                                        {p.nota}
-                                    </Titulo>
-                                    <Estrela src={estrela} />
-                                </Avaliacao>
-                            </Contetitle>
-                            <Paragrafo>
-                                {p.descricao}
-                            </Paragrafo>
-                            <ConteBtn>
-                                <Botao onClick={
-
-                                    () => {
-
-                                        if (p.nome == "Hioki Sushi") {
-                                            dispatch(restauranteErase(true));
-                                            navPerfil('/perfil2');
-                                            dispatch(restaurante({ tipo: p.comida, restaurante: p.nome }));
-                                        } else if (p.nome == "La Dolce Vita Trattoria") {
-                                            dispatch(restauranteErase(true));
-                                            navPerfil('/perfil');
-                                            dispatch(restaurante({ tipo: p.comida, restaurante: p.nome }));
-                                        } else if (p.nome == "Chatue de la France") {
-                                            dispatch(restauranteErase(true));
-                                            navPerfil('/perfil3');
-                                            dispatch(restaurante({ tipo: p.comida, restaurante: p.nome }));
-                                        } else if (p.nome == "Are Baba Restaurante") {
-                                            dispatch(restauranteErase(true));
-                                            navPerfil('/perfil4');
-                                            dispatch(restaurante({ tipo: p.comida, restaurante: p.nome }));
-                                        } else if (p.nome == "Restaurante Portuga") {
-                                            dispatch(restauranteErase(true));
-                                            navPerfil('/perfil5');
-                                            dispatch(restaurante({ tipo: p.comida, restaurante: p.nome }));
-                                        } else if (p.nome == "Restaurante Brasil") {
-                                            dispatch(restauranteErase(true));
-                                            navPerfil('/perfil6');
-                                            dispatch(restaurante({ tipo: p.comida, restaurante: p.nome }));
-                                        }
-                                    }
-                                }>
-                                    Saiba mais
-                                </Botao>
-
-                            </ConteBtn>
-
-                        </Conteudo>
-                    </Lista>
-                )}
-            </ul> */}
         </>
     )
 }
