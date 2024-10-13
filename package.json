@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "start": "vite",
+    "postinstall": "npm install",
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest run",
@@ -13,9 +14,6 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "type-check": "tsc --noEmit"
-  },
-  "engines": {
-    "node": "18.x"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",
