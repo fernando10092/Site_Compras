@@ -33,7 +33,12 @@ max-width: 40%;
 margin: 0 auto;
 }
 
-@media (min-width: 1440px) and (max-width: 2559px){
+@media (min-width: 2021px) and (max-width: 2559px){
+max-width: 45%;
+margin: 0 auto;
+}
+
+@media (min-width: 1440px) and (max-width: 2020px){
 max-width: 70%;
 margin: 0 auto;
 }
@@ -109,7 +114,12 @@ padding-left: 30%;
 padding-right: 30%;
 }
 
-@media (min-width: 1440px) and (max-width: 2559px){
+@media (min-width: 2021px) and (max-width: 2559px){
+padding-left: 28%;
+padding-right: 28%;
+}
+
+@media (min-width: 1440px) and (max-width: 2020px){
 padding-left: 15%;
 padding-right: 15%;
 }
