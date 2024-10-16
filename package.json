@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "vite",
     "start": "vite",
-    "postinstall": "npm install",
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest run",
