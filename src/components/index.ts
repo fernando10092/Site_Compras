@@ -113,7 +113,7 @@ text-align: justify;
 margin-top: 0px;
 display: block;
 width: 100%;
-padding: 0px;
+padding-left: 10px;
 }
 `
 
@@ -162,18 +162,17 @@ margin: 10px;
 `
 
 //Botao Close
-export const BotaoClose = styled.button`
-width: 25px;
-height: 25px;
+export const BotaoClose = styled.img`
+margin-top: 10px;
+width: 16px;
+height: 16px;
 color: #FFFFFF;
 font-weight: bold;
-background-color: rgb(0,0,0,0.0);
 cursor: pointer;
 border: none;
 
-@media (max-width: 791px){
-width: 30px;
-height: 30px;
+@media (max-width: 799px){
+margin-right: 10px;
 }
 `
 

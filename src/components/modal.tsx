@@ -4,6 +4,7 @@ import { ContStyledModal, ContImg, ImgPizzaModal, ContStyledModalText, ProdutoMo
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
 import { adicionarItem, callModal2, valorItem, listaChartReducer, carrinhoVisible, delCarrinho } from "../store/reducers/carrinhoReducer";
+import fechar from '../public/assets/close 1.png';
 
 // MODAL COMPONENT
 const Modal = () => {
@@ -63,7 +64,7 @@ const Modal = () => {
                         </ContImg>
                         <ContStyledModalText>
                             <ContBtn>
-                                <BotaoClose onClick={closeModal}>X</BotaoClose>
+                                <BotaoClose src={fechar} onClick={closeModal}/>
                             </ContBtn>
                             <ProdutoModal>{adicionadoCarrinho.map((e) => e.produto)}</ProdutoModal>
                             <DescricaoModal>
