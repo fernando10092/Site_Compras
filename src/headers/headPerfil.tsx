@@ -6,7 +6,6 @@ import { carrinhoVisible, listaChartReducer } from "../store/reducers/carrinhoRe
 import { useNavigate } from "react-router-dom";
 import logo from '../public/assets/logo.png';
 import vector from '../public/assets/Vector.png';
-import hero from '../public/assets/fooditaliana.png';
 import { useEffect, useState } from "react";
 
 //TIPO
@@ -17,10 +16,10 @@ type HeadPerfilProps = {
 // COMPONENTE HEAD PERFIL
 const HeadPerfil = ({ onCarrinhoClick }: HeadPerfilProps) => {
 
+    //USE DISPATCH
     const dispatch = useDispatch();
 
     //USESTATE QUANTIDADE NO CARRINHO
-    const carrinho = useSelector((state: RootState) => state.carrinho.qtd);
     const qtd = useSelector((state: RootState) => state.carrinho.lista);
 
     //CHAMANDO PAGINA INICIAL
@@ -29,7 +28,7 @@ const HeadPerfil = ({ onCarrinhoClick }: HeadPerfilProps) => {
         navigate("/")
     }
 
-    //
+    //VISIBILIDADE DO CARRINHO
     const returnCarrinho = () => {
         dispatch(carrinhoVisible(true));
     }
@@ -48,6 +47,7 @@ const HeadPerfil = ({ onCarrinhoClick }: HeadPerfilProps) => {
         });
     }, []);
 
+    //RETRUN
     return (
         <>
             <HeaderStyledPerfil>
@@ -63,23 +63,18 @@ const HeadPerfil = ({ onCarrinhoClick }: HeadPerfilProps) => {
                     </ContainerStyledPerfil>
                 </ImagemStyledPerfil>
             </HeaderStyledPerfil>
-
             <DivHero>
-
-
                 <>
                     <DivRestaurante>
                         <TextStyledRestaurante>{restaurantetipo}</TextStyledRestaurante>
                         <TextStyledRestaurante2>{restaurantetitulo}</TextStyledRestaurante2>
                     </DivRestaurante>
                 </>
-
                 <ImgHero><ImagemStyledPerfilFood src={restauranteimg} /></ImgHero>
-
             </DivHero>
-
         </>
     );
 };
 
+//EXPORTAÇÃO
 export default HeadPerfil;

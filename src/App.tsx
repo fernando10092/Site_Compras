@@ -2,17 +2,14 @@
 import "./App.css"
 import Layout from "./containers/conteudo"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Modal from "./components/modal";
 import { store } from "./store";
 import { Provider } from "react-redux";
-import Entrega from "./components/entrega";
 import Cardapio from "./content/cardapio";
 import Cardapio2 from "./content/cardapio2";
 import Cardapio3 from "./content/cardapio3";
 import Cardapio4 from "./content/cardapio4";
 import Cardapio5 from "./content/cardapio5";
 import Cardapio6 from "./content/cardapio6";
-import Load from "./content/load";
 import Homer from "./arquivosTestes/base"
 
 //APLICAÇÃO
@@ -38,8 +35,8 @@ return (
       </BrowserRouter>
     </Provider>
   </>
-
 )
 }
 
+//EXPORTAÇÃO APP
 export default App

@@ -14,7 +14,7 @@ import Finalizacao from "../components/finalizacao";
 import { BlackCarrinho } from "../components/carrinhoStyled";
 import { carrinhoVisible, entregaVisible as ev, cartaoVisible as cv } from "../store/reducers/carrinhoReducer";
 
-// Defina a interface para o tipo dos objetos no estado
+// DEFININDO A INTERFACE
 interface Produto {
   foto: string;
   nome: string;
@@ -23,7 +23,7 @@ interface Produto {
   preco: string;
 }
 
-//PERFIL
+//COMPONENTE CARDAPIO
 const Cardapio = () => {
   //USEDISPATCH
   const dispatch = useDispatch();
@@ -39,25 +39,17 @@ const Cardapio = () => {
   //USEREF
   const carrinhoRef = useRef<HTMLDivElement>(null);
 
-  //INDEX / IMAGEM / PRODUTO / DESCRICAO / SERVE / VALOR
-  const [id, setId] = useState<number>();
-  const [imagem, setImagem] = useState<string>();
-  const [produtos, setProdutos] = useState<string>();
-  const [descricao, setDescricao] = useState<string>();
-  const [serve, setServe] = useState<string>();
-  const [valores, setValores] = useState<string>();
-
-  const adicionado = useSelector((state: RootState) => state.carrinho.addCarrinho);
-
+  //FUNÇÃO CHAMAR MODAL
   const showModal = () => {
     dispatch(callModal2(true));
   };
 
+  //FUNÇÃO ALTERNAR ABRIR E FECHAR CARRINHO
   const handleToggleCarrinho = () => {
     dispatch(toggleCarrinhoAction(!carrinhoVisivel));
   };
 
-  // Fechar o carrinho ao clicar fora dele
+  //FECHAR CARRINHO AO CLICAR FORA DA AREA
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (carrinhoRef.current && !carrinhoRef.current.contains(event.target as Node)) {
@@ -77,19 +69,21 @@ const Cardapio = () => {
   //ESTADO
   const [meuestado, setMeuestado] = useState<Produto[]>([]);
 
+  //CHAMADA PARA API
   useEffect(() => {
     fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
       .then((res) => res.json())
       .then((res) => setMeuestado(res[0]['cardapio']));
   }, []);
 
-  //Close
+  //FUNÇÃO FECHAR
   const handleClose = () => {
     dispatch(carrinhoVisible(false));
     dispatch(ev(false));
     dispatch(cv(false));
   }
 
+  //RETURN
   return (
     <>
       <HeadPerfil onCarrinhoClick={handleToggleCarrinho} />
@@ -137,10 +131,10 @@ const Cardapio = () => {
           ))}
         </ContainerPerfil>
       </Center>
-
       <Rodapecomponents />
     </>
   );
 };
 
+//EXPORTANDO CARDAPIO
 export default Cardapio;

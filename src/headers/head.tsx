@@ -22,4 +22,5 @@ const Headinit = () => {
     )
 }
 
+//EXPORTAÇÃO
 export default Headinit;

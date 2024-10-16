@@ -8,10 +8,12 @@ height: 384px;
 top: -24px;
 text-align: center;
 `
-//Imagem
+//Props Imagem
 type imagem = {
     url: string;
 }
+
+//Imagem
 export const Imagem = styled.div<imagem>`
 background-image: url('${(e)=>e.url}');
 background-color: #FFEBD9;
@@ -28,7 +30,6 @@ align-content: center;
 
 //Logo
 export const Logo = styled.img`
-
 width: 125px;
 height: 57.5px;
 background-repeat: no-repeat;

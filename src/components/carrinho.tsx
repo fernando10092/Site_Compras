@@ -1,52 +1,34 @@
-import { useState } from "react";
+//IMPORTAÇÕES
 import { ContainerCarrinho, Ul, ListaChart, ContainerItens, ImgCarrinho, ContainerText, Item, Valor, ContainerIcon, Icon, ContainerDetalhes, Detalhes, BotaoContinuar } from "./carrinhoStyled";
-import itens from '../public/assets/imgCarrinho.png';
 import lixeira from '../public/assets/lixeira.png';
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
-import { valorItem, excluirItem, carrinhoVisible, entregaVisible, excluirValor } from "../store/reducers/carrinhoReducer";
-import { Link, useNavigate } from "react-router-dom";
-const Carrinho = () => {
+import { excluirItem, carrinhoVisible, entregaVisible, excluirValor } from "../store/reducers/carrinhoReducer";
 
+//COMPONENTE CARRINHO
+const Carrinho = () => {
+    //USEDISPACTH
     const dispatch = useDispatch();
     const valor = useSelector((state: RootState) => state.carrinho.valor);
-    const item = useSelector((state: RootState) => state.carrinho.qtd);
     const listaReducer = useSelector((state: RootState) => state.carrinho.lista);
-    const exclusao = useSelector((state: RootState) => state.carrinho.lista);
-    const adicionadoCarrinho = useSelector((state: RootState) => state.carrinho.addCarrinho);
 
-    const closeCarrinho = () => {
-        dispatch(carrinhoVisible(false))
-    }
-
+    //FUNÇÃO VAI PARA A ENTREGA
     const goDelivery = () => {
-
-        //{listaReducer.reduce((acumulado, item) => acumulado + item.valor, 0).toFixed(2)}
-
         if (valor > 0) {
-
             dispatch(carrinhoVisible(false));
             dispatch(entregaVisible(true));
-
         } else {
             alert("Seu carrinho está vazio");
         }
-
     }
 
-
-    const removerValor = () => {
-
-    }
-
+    //RETURN
     return (
         <>
             <ContainerCarrinho>
                 <Ul>
                     {listaReducer.map((p, index) => (
-
                         <ListaChart key={index}>
-
                             <ContainerItens>
                                 <ImgCarrinho src={p.img} />
                                 <ContainerText>
@@ -70,4 +52,5 @@ const Carrinho = () => {
     )
 }
 
+//EXPORTAÇÃO CARRINHO
 export default Carrinho;

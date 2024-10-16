@@ -8,6 +8,8 @@ height: 186px;
 top: -24px;
 text-align: center;
 `
+
+//Props Imagem
 type imagem = {
     img: string;
 }
@@ -19,8 +21,6 @@ max-width: 100vw;
 height: 186px;
 align-content: center;
 justify-content: space-around;
-
-
 `
 //Container texthead
 export const ContainerStyledPerfil = styled.div`
@@ -46,7 +46,6 @@ margin: 0 auto;
 @media (min-width: 1024px) and (max-width: 1439px){
 max-width: 90%;
 margin: 0 auto;
-
 }
 
 @media (max-width: 790px){
@@ -55,6 +54,8 @@ max-width: 95%;
 margin: 0 auto;
 }
 `
+
+//Container Logo
 export const ContLogo = styled.div`
 justify-content: center;
 display: flex;
@@ -70,7 +71,6 @@ display: inline-block;
 
 @media (max-width: 790px){
 display: block;
-
 }
 `
 
@@ -134,19 +134,16 @@ padding-left: 5%;
 padding-right: 5%px;
 }
 `
-//
+
 //TEXT RESTAURANTE
 export const TextStyledRestaurante = styled.h1`
 color: #FFFFFF;
 font-size: 32px;
 margin-bottom: 70px;
-
 `
 //TEXT RESTAURANTE
 export const TextStyledRestaurante2 = styled.h1`
 color: #FFFFFF;
 font-size: 32px;
 font-weight: 900px;
-
-
 `
