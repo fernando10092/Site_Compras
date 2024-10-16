@@ -58,8 +58,8 @@ overflow-y: auto;
 `
 //Container IMG
 export const ContImg = styled.div`
-max-width: 280px;
-max-height: 280px;
+width: 280px;
+height: 280px;
 margin: 22.5px;
 grid-template-columns: auto;
 text-align: center;
@@ -75,11 +75,13 @@ height: 280px;
 }
 
 @media (max-width: 654px){
-width: 200px;
+width: 100%;
 height: 200px;
+align-content: center;
 margin: 0px;
 margin-top: 10px;
 margin-left: 10px;
+margin-bottom: 0px;
 }
 
 `
@@ -95,7 +97,7 @@ height: 280px;
 }
 
 @media (max-width: 654px){
-width: 200px;
+width: 250px;
 height: 200px;
 }
 
@@ -138,7 +140,6 @@ width: 70%;
 
 @media (max-width: 799px){
 font-size: 12px;
-padding: 10px;
 }
 `
 //Container BTN
