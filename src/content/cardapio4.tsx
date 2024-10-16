@@ -12,8 +12,9 @@ import Entrega from "../components/entrega";
 import Cartao from "../components/cartao";
 import Finalizacao from "../components/finalizacao";
 import { BlackCarrinho } from "../components/carrinhoStyled";
+import { carrinhoVisible, entregaVisible as ev, cartaoVisible as cv } from "../store/reducers/carrinhoReducer";
 
-// Defina a interface para o tipo dos objetos no estado
+// DEFININDO A INTERFACE
 interface Produto {
   foto: string;
   nome: string;
@@ -22,7 +23,7 @@ interface Produto {
   preco: string;
 }
 
-//PERFIL
+//COMPONENTE CARDAPIO
 const Cardapio4 = () => {
   //USEDISPATCH
   const dispatch = useDispatch();
@@ -38,25 +39,17 @@ const Cardapio4 = () => {
   //USEREF
   const carrinhoRef = useRef<HTMLDivElement>(null);
 
-  //INDEX / IMAGEM / PRODUTO / DESCRICAO / SERVE / VALOR
-  const [id, setId] = useState<number>();
-  const [imagem, setImagem] = useState<string>();
-  const [produtos, setProdutos] = useState<string>();
-  const [descricao, setDescricao] = useState<string>();
-  const [serve, setServe] = useState<string>();
-  const [valores, setValores] = useState<string>();
-
-  const adicionado = useSelector((state: RootState) => state.carrinho.addCarrinho);
-
+  //FUNÇÃO CHAMAR MODAL
   const showModal = () => {
     dispatch(callModal2(true));
   };
 
+  //FUNÇÃO ALTERNAR ABRIR E FECHAR CARRINHO
   const handleToggleCarrinho = () => {
     dispatch(toggleCarrinhoAction(!carrinhoVisivel));
   };
 
-  // Fechar o carrinho ao clicar fora dele
+  //FECHAR CARRINHO AO CLICAR FORA DA AREA
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (carrinhoRef.current && !carrinhoRef.current.contains(event.target as Node)) {
@@ -76,20 +69,37 @@ const Cardapio4 = () => {
   //ESTADO
   const [meuestado, setMeuestado] = useState<Produto[]>([]);
 
+  //CHAMADA PARA API
   useEffect(() => {
     fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
       .then((res) => res.json())
       .then((res) => setMeuestado(res[3]['cardapio']));
   }, []);
 
+  //FUNÇÃO FECHAR
+  const handleClose = () => {
+    dispatch(carrinhoVisible(false));
+    dispatch(ev(false));
+    dispatch(cv(false));
+  }
+
+
   return (
     <>
       <HeadPerfil onCarrinhoClick={handleToggleCarrinho} />
       {modalVisible && <Modal />}
-      {carrinhoV && <BlackCarrinho><Carrinho /></BlackCarrinho> }
-      {entregaVisible && <BlackCarrinho><Entrega /></BlackCarrinho>}
-      {cartaoVisible && <BlackCarrinho><Cartao /></BlackCarrinho>}
-      {finalizacaoVisible && <BlackCarrinho><Finalizacao /></BlackCarrinho>}
+
+      {carrinhoV && <BlackCarrinho onClick={handleClose} />}
+      {carrinhoV && <Carrinho />}
+
+      {entregaVisible && <BlackCarrinho onClick={handleClose} />}
+      {entregaVisible && <Entrega />}
+
+      {cartaoVisible && <BlackCarrinho onClick={handleClose} />}
+      {cartaoVisible && <Cartao />}
+
+      {finalizacaoVisible && <BlackCarrinho />}
+      {finalizacaoVisible && <Finalizacao />}
 
       {carrinhoVisivel && (
         <div ref={carrinhoRef} style={{ position: 'relative', zIndex: 1000 }}>

@@ -30,6 +30,7 @@ return (
             <Route path="/cardapio5" element={<Cardapio5 />} />
             <Route path="/cardapio6" element={<Cardapio6 />} />
             <Route path="/testes" element={<Homer />} />
+            <Route path="/checkout" element={<></>}/>
           </Route>
         </Routes>
       </BrowserRouter>
