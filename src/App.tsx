@@ -10,7 +10,8 @@ import Cardapio3 from "./content/cardapio3";
 import Cardapio4 from "./content/cardapio4";
 import Cardapio5 from "./content/cardapio5";
 import Cardapio6 from "./content/cardapio6";
-import Homer from "./arquivosTestes/base"
+import Homer from "./arquivosTestes/base";
+import Cartao from "./components/cartao";
 
 //APLICAÇÃO
 const App = () => {
@@ -30,7 +31,6 @@ return (
             <Route path="/cardapio5" element={<Cardapio5 />} />
             <Route path="/cardapio6" element={<Cardapio6 />} />
             <Route path="/testes" element={<Homer />} />
-            <Route path="/checkout" element={<></>}/>
           </Route>
         </Routes>
       </BrowserRouter>

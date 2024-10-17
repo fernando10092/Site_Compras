@@ -14,7 +14,8 @@ const Carrinho = () => {
 
     //FUNÇÃO VAI PARA A ENTREGA
     const goDelivery = () => {
-        if (valor > 0) {
+        if (listaReducer.length > 0) {
+            console.log(listaReducer.length);
             dispatch(carrinhoVisible(false));
             dispatch(entregaVisible(true));
         } else {
@@ -35,7 +36,7 @@ const Carrinho = () => {
                                     <Item>{p.nome}</Item>
                                     <Valor>R$ {p.valor.toFixed(2)}</Valor>
                                     <ContainerIcon>
-                                        <Icon onClick={() => dispatch(excluirItem(index))} src={lixeira} />
+                                        <Icon onClick={() => {dispatch(excluirItem(index)); console.log(listaReducer.length)}} src={lixeira} />
                                     </ContainerIcon>
                                 </ContainerText>
                             </ContainerItens>
