@@ -11,6 +11,14 @@ const Modal = () => {
 
     const valorPizza = 60.90;
 
+    //FORMATAR VALOR
+    const formatCurrency = (value: number) => {
+        return new Intl.NumberFormat('pt-BR', {
+          style: 'currency',
+          currency: 'BRL',
+        }).format(value);
+      };
+
     const dispatch = useDispatch();
     const modalRef = useRef<HTMLDivElement>(null);
     const modalVisible = useSelector((state: RootState) => state.carrinho.modalVisible);
@@ -73,7 +81,7 @@ const Modal = () => {
                                 <br />
                                 Serve: {adicionadoCarrinho.map((e) => e.descricao)}
                             </DescricaoModal>
-                            <BotaoModal onClick={callCarrinho}>Adicionar ao carrinho - R$ {adicionadoCarrinho.map((e) => e.valor.toFixed(2))}</BotaoModal>
+                            <BotaoModal onClick={callCarrinho}>Adicionar ao carrinho - {adicionadoCarrinho.map((e) => formatCurrency(e.valor))}</BotaoModal>
                         </ContStyledModalText>
                     </ContStyledModal>
                 </div>

@@ -12,6 +12,14 @@ const Carrinho = () => {
     const valor = useSelector((state: RootState) => state.carrinho.valor);
     const listaReducer = useSelector((state: RootState) => state.carrinho.lista);
 
+    //FORMATAR VALOR
+    const formatCurrency = (value: number) => {
+        return new Intl.NumberFormat('pt-BR', {
+          style: 'currency',
+          currency: 'BRL',
+        }).format(value);
+      };
+
     //FUNÇÃO VAI PARA A ENTREGA
     const goDelivery = () => {
         if (listaReducer.length > 0) {
@@ -34,7 +42,7 @@ const Carrinho = () => {
                                 <ImgCarrinho src={p.img} />
                                 <ContainerText>
                                     <Item>{p.nome}</Item>
-                                    <Valor>R$ {p.valor.toFixed(2)}</Valor>
+                                    <Valor>{formatCurrency(p.valor)}</Valor>
                                     <ContainerIcon>
                                         <Icon onClick={() => {dispatch(excluirItem(index)); console.log(listaReducer.length)}} src={lixeira} />
                                     </ContainerIcon>
@@ -45,7 +53,7 @@ const Carrinho = () => {
                 </Ul>
                 <ContainerDetalhes>
                     <Detalhes>Valor Total</Detalhes>
-                    <Detalhes>R$ {listaReducer.reduce((acumulado, item) => acumulado + item.valor, 0).toFixed(2)}</Detalhes>
+                    <Detalhes>{formatCurrency(listaReducer.reduce((acumulado, item) => acumulado + item.valor, 0))}</Detalhes>
                 </ContainerDetalhes>
                 <BotaoContinuar onClick={goDelivery}>Continuar com a entrega</BotaoContinuar>
             </ContainerCarrinho>

@@ -4,6 +4,15 @@ import { entregaVisible, carrinhoVisible, cartaoVisible, concluirVisible } from 
 import { RootState } from "../store";
 import { useState } from "react";
 const Cartao = () => {
+
+    //FORMATAR VALOR
+    const formatCurrency = (value: number) => {
+        return new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+        }).format(value);
+    };
+
     const dispatch = useDispatch();
     const goBackAdress = () => {
         dispatch(cartaoVisible(false))
@@ -38,7 +47,7 @@ const Cartao = () => {
 
             <ContainerCarrinho>
                 <TitleDelivery>
-                    Pagamento - Valor a pagar R$ {listaReducer.reduce((acumulado, item) => acumulado + item.valor, 0).toFixed(2)}
+                    Pagamento - Valor a pagar {formatCurrency(listaReducer.reduce((acumulado, item) => acumulado + item.valor, 0))}
                 </TitleDelivery>
                 <LabelText>Nome no cartão</LabelText>
                 <InputDelivery onChange={(event) => setNome(event.target.value)} width={"95%"} display="block"></InputDelivery>
