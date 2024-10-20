@@ -1,5 +1,6 @@
 // carrinhoReducer.ts
 import { createSlice, isAction } from "@reduxjs/toolkit";
+import { build } from "vite";
 
 type Item = {
     nome: string,
@@ -8,13 +9,13 @@ type Item = {
 }
 
 type DadosGerais = {
-    id:string,
-    nome:string,
-    endereco:string,
-    cidade:string,
-    cep:string,
-    numero:string,
-    complemento:string,
+    id: string,
+    nome: string,
+    endereco: string,
+    cidade: string,
+    cep: string,
+    numero: string,
+    complemento: string,
 }
 //IMAGEM / PRODUTO / DESCRICAO / SERVE / VALOR
 type AddCarrinho = {
@@ -48,7 +49,8 @@ type Props = {
     deleteCarrinho: boolean,
     restaurante: Restaurante[];
     selectRestaurante: string;
-    numRestaurante: number
+    numRestaurante: number,
+    order: string
 };
 
 const initialState: Props = {
@@ -68,8 +70,9 @@ const initialState: Props = {
     deleteCarrinho: false,
     restaurante: [],
     selectRestaurante: "",
-    numRestaurante: 0
-};
+    numRestaurante: 0,
+    order: ""
+}
 
 export const carrinhoSlice = createSlice({
     name: "carrinho",
@@ -87,28 +90,28 @@ export const carrinhoSlice = createSlice({
         toggleCarrinho: (state, action) => {
             state.carrinhoVisivel = action.payload;
         },
-        listaChartReducer: (state, action) =>{
+        listaChartReducer: (state, action) => {
             state.lista.push(action.payload);
         },
         excluirItem: (state, action) => {
             state.lista.splice(action.payload, 1);
         },
-        excluirValor:(state, action)=>{
+        excluirValor: (state, action) => {
             state.lista.splice(action.payload, 1);
         },
-        carrinhoVisible: (state, action)=>{
+        carrinhoVisible: (state, action) => {
             state.carrinhoVisible = action.payload;
         },
-        entregaVisible: (state, action)=>{
+        entregaVisible: (state, action) => {
             state.entrega = action.payload;
         },
-        cartaoVisible: (state, action)=>{
+        cartaoVisible: (state, action) => {
             state.cartao = action.payload;
         },
-        concluirVisible: (state, action)=>{
+        concluirVisible: (state, action) => {
             state.concluir = action.payload;
         },
-        dadosCompra: (state,action)=>{
+        dadosCompra: (state, action) => {
             state.dados.push(action.payload);
         },
         addCarrinho: (state, action) => {
@@ -123,15 +126,18 @@ export const carrinhoSlice = createSlice({
         restauranteErase: (state, action) => {
             state.restaurante.pop();
         },
-        selecionado:(state, action)=>{
+        selecionado: (state, action) => {
             state.selectRestaurante = action.payload
         },
-        numeracaorestaurante: (state, action)=>{
+        numeracaorestaurante: (state, action) => {
             state.numRestaurante = action.payload;
+        },
+        ordem:(state, action)=>{
+            state.order = action.payload;
         }
     },
 });
 
-export const { adicionarItem, valorItem, callModal2, toggleCarrinho, listaChartReducer, excluirItem, excluirValor, carrinhoVisible, entregaVisible, cartaoVisible, concluirVisible, dadosCompra, addCarrinho, delCarrinho, restaurante, restauranteErase, selecionado, numeracaorestaurante } = carrinhoSlice.actions;
+export const { adicionarItem, valorItem, callModal2, toggleCarrinho, listaChartReducer, excluirItem, excluirValor, carrinhoVisible, entregaVisible, cartaoVisible, concluirVisible, dadosCompra, addCarrinho, delCarrinho, restaurante, restauranteErase, selecionado, numeracaorestaurante, ordem } = carrinhoSlice.actions;
 
 export default carrinhoSlice.reducer;

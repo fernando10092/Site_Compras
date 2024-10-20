@@ -1,9 +1,29 @@
 import { useDispatch, useSelector } from "react-redux";
 import { ContainerCarrinho, BotaoContinuar, TitleDelivery, LabelText, InputDelivery, DivSmall } from "./carrinhoStyled";
-import { entregaVisible, carrinhoVisible, cartaoVisible, concluirVisible } from "../store/reducers/carrinhoReducer";
+import { entregaVisible, carrinhoVisible, cartaoVisible, concluirVisible, ordem } from "../store/reducers/carrinhoReducer";
 import { RootState } from "../store";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { usePurchaseMutation } from "../services/api";
+
 const Cartao = () => {
+
+    //USE DISPATCH
+    const dispatch = useDispatch();
+
+    //API
+    const [purchase, { isLoading, isError, data }] = usePurchaseMutation();
+
+    useEffect(() => {
+        purchase({
+            products: [{ id: 100, price: 20 }], delivery: {
+                receiver: "Receiver teste", address: {
+                    description: "Description teste", city: "maua",
+                    zipCode: "0000", number: 10, complement: "casa"
+                }
+            }, payment: { card: { name: "123", number: "456", code: "789", expires: { month: 10, year: 2024 } } }
+        }).then((e) => dispatch(ordem(e.data.orderId)));
+    },[])
+
 
     //FORMATAR VALOR
     const formatCurrency = (value: number) => {
@@ -13,13 +33,13 @@ const Cartao = () => {
         }).format(value);
     };
 
-    const dispatch = useDispatch();
+    //VOLTAR
     const goBackAdress = () => {
         dispatch(cartaoVisible(false))
         dispatch(entregaVisible(true));
-
     }
 
+    //CONCLUIR
     const goConcluir = () => {
         if (nome && numero && cvv && mes && ano != "") {
             dispatch(cartaoVisible(false));
@@ -29,22 +49,18 @@ const Cartao = () => {
         }
     }
 
-    const closeCarrinho = () => {
-        dispatch(cartaoVisible(false))
-    }
-
-    const valor = useSelector((state: RootState) => state.carrinho.valor);
     const listaReducer = useSelector((state: RootState) => state.carrinho.lista);
 
+    //USESTATE
     const [nome, setNome] = useState<string>();
     const [numero, setNumero] = useState<string>();
     const [cvv, setCvv] = useState<string>();
     const [mes, setMes] = useState<string>();
     const [ano, setAno] = useState<string>();
 
+    //RETURN
     return (
         <>
-
             <ContainerCarrinho>
                 <TitleDelivery>
                     Pagamento - Valor a pagar {formatCurrency(listaReducer.reduce((acumulado, item) => acumulado + item.valor, 0))}
@@ -75,9 +91,7 @@ const Cartao = () => {
 
                 <BotaoContinuar onClick={goConcluir}>Finalizar pagamento</BotaoContinuar>
                 <BotaoContinuar onClick={goBackAdress}>Voltar para edição de endereço</BotaoContinuar>
-
             </ContainerCarrinho>
-
         </>
     )
 }

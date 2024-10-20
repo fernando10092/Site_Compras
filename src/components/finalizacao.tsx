@@ -4,20 +4,28 @@ import { entregaVisible, carrinhoVisible, cartaoVisible, concluirVisible } from 
 import { Link } from "react-router-dom";
 import { RootState } from "../store";
 import { useNavigate } from 'react-router-dom';
+import { usePurchaseMutation } from "../services/api";
+
 const Finalizacao = () => {
+
+    const orderId = useSelector((state: RootState)=>state.carrinho.order);
+
+    //
     const navigate = useNavigate();
-    const dispatch = useDispatch();
     const concluir = () => {
         navigate(0);
     }
+
+    //
     const idSelector = useSelector((state: RootState) => state.carrinho.dados);
     idSelector.map((e) => e.id)
 
+    //RETURN
     return (
         <>
             <ContainerCarrinho>
                 <TitleDelivery>
-                    Pedido Realizado - {idSelector.map((e) => e.id)}
+                    Pedido Realizado - {orderId}
                 </TitleDelivery>
 
                 <Paragrafo>

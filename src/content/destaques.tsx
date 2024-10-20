@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { restaurante, restauranteErase, numeracaorestaurante } from "../store/reducers/carrinhoReducer";
 import { useEffect, useState } from "react";
 import Load from "./load";
+import Pacman from "../load/loadingPac";
 
 //DESTAQUES PAGINA INICIAL
 const Destaques = () => {
@@ -18,13 +19,15 @@ const Destaques = () => {
         //dispatch(restaurante({tipo:"Italiana",restaurante:"La Dolce Vita Trattoria"}))
         //navPerfil('/perfil');
     }
-
-    //API  
+ 
     const [meuestado, setMeuestado] = useState([]);
+
+    //LOADING 
     const [load, setLoading] = useState(true);
     const carregando = () => {
         setLoading(false);
     }
+
     try {
         useEffect(() => {
             setInterval(carregando, 3000);
@@ -36,7 +39,7 @@ const Destaques = () => {
 
     return (
         <>
-            {load && <Load />}
+            {load && <Pacman />}
             <ContainerLista>
             {
                 //meuestado.forEach((e) => { e['titulo']})

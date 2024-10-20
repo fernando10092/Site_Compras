@@ -13,6 +13,8 @@ import Cartao from "../components/cartao";
 import Finalizacao from "../components/finalizacao";
 import { BlackCarrinho } from "../components/carrinhoStyled";
 import { carrinhoVisible, entregaVisible as ev, cartaoVisible as cv } from "../store/reducers/carrinhoReducer";
+import { useGetRestauranteByNameQuery } from '../services/api';
+import Pacman from "../load/loadingPac";
 
 // DEFININDO A INTERFACE
 interface Produto {
@@ -66,15 +68,24 @@ const Cardapio6 = () => {
     };
   }, [dispatch, carrinhoVisivel]);
 
+  //NOVA REQUISICAO NÃO USADA
+  const { data, isLoading } = useGetRestauranteByNameQuery()
+  console.log(data)
+
   //ESTADO
   const [meuestado, setMeuestado] = useState<Produto[]>([]);
 
   //CHAMADA PARA API
-  useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
-      .then((res) => res.json())
-      .then((res) => setMeuestado(res[5]['cardapio']));
-  }, []);
+  try {
+    useEffect(() => {
+      setInterval(carregando, 3000);
+      fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
+        .then((res) => res.json())
+        .then((res) => setMeuestado(res[5]['cardapio']));
+    }, []);
+  } catch (e) {
+    alert('Erro: ' + e);
+  };
 
   //FUNÇÃO FECHAR
   const handleClose = () => {
@@ -83,9 +94,16 @@ const Cardapio6 = () => {
     dispatch(cv(false));
   }
 
+  //LOADING
+  const [load, setLoading] = useState(true);
+  const carregando = () => {
+    setLoading(false);
+  }
 
+  //RETURN
   return (
     <>
+      {load && <Pacman />}
       <HeadPerfil onCarrinhoClick={handleToggleCarrinho} />
       {modalVisible && <Modal />}
 
@@ -101,11 +119,6 @@ const Cardapio6 = () => {
       {finalizacaoVisible && <BlackCarrinho />}
       {finalizacaoVisible && <Finalizacao />}
 
-      {carrinhoVisivel && (
-        <div ref={carrinhoRef} style={{ position: 'relative', zIndex: 1000 }}>
-          <Carrinho />
-        </div>
-      )}
       <Center>
         <ContainerPerfil>
           {meuestado.map((e, index) => (
@@ -136,10 +149,10 @@ const Cardapio6 = () => {
           ))}
         </ContainerPerfil>
       </Center>
-
       <Rodapecomponents />
     </>
   );
 };
 
+//EXPORTANDO CARDAPIO
 export default Cardapio6;

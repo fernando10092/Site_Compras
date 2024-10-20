@@ -12,6 +12,7 @@ import Cardapio5 from "./content/cardapio5";
 import Cardapio6 from "./content/cardapio6";
 import Homer from "./arquivosTestes/base";
 import Cartao from "./components/cartao";
+import Pacman from "./load/loadingPac";
 
 //APLICAÇÃO
 const App = () => {
@@ -30,7 +31,7 @@ return (
             <Route path="/cardapio4" element={<Cardapio4 />} />
             <Route path="/cardapio5" element={<Cardapio5 />} />
             <Route path="/cardapio6" element={<Cardapio6 />} />
-            <Route path="/testes" element={<Homer />} />
+            <Route path="/testes" element={<Pacman />} />
           </Route>
         </Routes>
       </BrowserRouter>
